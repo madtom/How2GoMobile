@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D71A32D61614E73100719482 /* CNX_ExpensesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D71A32D51614E73100719482 /* CNX_ExpensesTableViewController.m */; };
 		D7F78EFF160CE70800C40E24 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7F78EFE160CE70800C40E24 /* UIKit.framework */; };
 		D7F78F01160CE70800C40E24 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7F78F00160CE70800C40E24 /* Foundation.framework */; };
 		D7F78F03160CE70800C40E24 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7F78F02160CE70800C40E24 /* CoreGraphics.framework */; };
@@ -25,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D71A32D41614E73100719482 /* CNX_ExpensesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNX_ExpensesTableViewController.h; sourceTree = "<group>"; };
+		D71A32D51614E73100719482 /* CNX_ExpensesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNX_ExpensesTableViewController.m; sourceTree = "<group>"; };
 		D7F78EFA160CE70800C40E24 /* How2Go.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = How2Go.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7F78EFE160CE70800C40E24 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D7F78F00160CE70800C40E24 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -135,6 +138,8 @@
 				D7F78F27160CE76700C40E24 /* CNX_ChargesViewController.m */,
 				D7F78F1C160CE70800C40E24 /* CNX_FlipsideViewController.h */,
 				D7F78F1D160CE70800C40E24 /* CNX_FlipsideViewController.m */,
+				D71A32D41614E73100719482 /* CNX_ExpensesTableViewController.h */,
+				D71A32D51614E73100719482 /* CNX_ExpensesTableViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -213,6 +218,7 @@
 				D7F78F1B160CE70800C40E24 /* CNX_MainViewController.m in Sources */,
 				D7F78F1E160CE70800C40E24 /* CNX_FlipsideViewController.m in Sources */,
 				D7F78F28160CE76700C40E24 /* CNX_ChargesViewController.m in Sources */,
+				D71A32D61614E73100719482 /* CNX_ExpensesTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
