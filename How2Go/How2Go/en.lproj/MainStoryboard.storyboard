@@ -111,7 +111,7 @@
                             </switch>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="akh-0Z-Tzr">
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="491" verticalHuggingPriority="464" image="Bus_100.png" translatesAutoresizingMaskIntoConstraints="NO" id="4c9-Me-fx9">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="491" verticalHuggingPriority="464" image="QuestionMark100.png" translatesAutoresizingMaskIntoConstraints="NO" id="4c9-Me-fx9">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="Sj2-EN-VGi"/>
                                         </constraints>
@@ -638,7 +638,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Bus_100.png" width="256" height="256"/>
+        <image name="QuestionMark100.png" width="79" height="100"/>
     </resources>
     <classes>
         <class className="CNX_ChargesViewController" superclassName="UIViewController">
@@ -652,7 +652,7 @@
             <relationships>
                 <relationship kind="action" name="done:"/>
                 <relationship kind="outlet" name="picker" candidateClass="UIPickerView"/>
-                <relationship kind="outlet" name="selectedValue" candidateClass="NSDecimalNumber"/>
+                <relationship kind="outlet" name="selectedValue" candidateClass="NSNumber"/>
             </relationships>
         </class>
         <class className="CNX_FlipsideViewController" superclassName="UIViewController">

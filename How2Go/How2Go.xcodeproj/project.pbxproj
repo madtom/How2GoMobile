@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D702A4B11627550000528FF0 /* CNX_vehicleCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = D702A4B01627550000528FF0 /* CNX_vehicleCalculator.m */; };
 		D702A4B51627552D00528FF0 /* CNX_ExtraCharges.m in Sources */ = {isa = PBXBuildFile; fileRef = D702A4B41627552D00528FF0 /* CNX_ExtraCharges.m */; };
+		D702A4B716277A2200528FF0 /* QuestionMark100.png in Resources */ = {isa = PBXBuildFile; fileRef = D702A4B616277A2200528FF0 /* QuestionMark100.png */; };
 		D764F21316274F320094663B /* CNX_DataSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D764F21216274F320094663B /* CNX_DataSelectViewController.m */; };
 		D7F78EFF160CE70800C40E24 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7F78EFE160CE70800C40E24 /* UIKit.framework */; };
 		D7F78F01160CE70800C40E24 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7F78F00160CE70800C40E24 /* Foundation.framework */; };
@@ -32,6 +33,7 @@
 		D702A4B01627550000528FF0 /* CNX_vehicleCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNX_vehicleCalculator.m; sourceTree = "<group>"; };
 		D702A4B31627552D00528FF0 /* CNX_ExtraCharges.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNX_ExtraCharges.h; sourceTree = "<group>"; };
 		D702A4B41627552D00528FF0 /* CNX_ExtraCharges.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNX_ExtraCharges.m; sourceTree = "<group>"; };
+		D702A4B616277A2200528FF0 /* QuestionMark100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = QuestionMark100.png; sourceTree = "<group>"; };
 		D764F21116274F320094663B /* CNX_DataSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNX_DataSelectViewController.h; sourceTree = "<group>"; };
 		D764F21216274F320094663B /* CNX_DataSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNX_DataSelectViewController.m; sourceTree = "<group>"; };
 		D7F78EFA160CE70800C40E24 /* How2Go.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = How2Go.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +134,7 @@
 		D7F78F24160CE73600C40E24 /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
+				D702A4B616277A2200528FF0 /* QuestionMark100.png */,
 				D7F78F2D160CF3C200C40E24 /* Bus_100.png */,
 				D7F78F2E160CF3C200C40E24 /* Car_100.png */,
 				D7F78F16160CE70800C40E24 /* MainStoryboard.storyboard */,
@@ -213,6 +216,7 @@
 				D7F78F18160CE70800C40E24 /* MainStoryboard.storyboard in Resources */,
 				D7F78F2F160CF3C200C40E24 /* Bus_100.png in Resources */,
 				D7F78F30160CF3C200C40E24 /* Car_100.png in Resources */,
+				D702A4B716277A2200528FF0 /* QuestionMark100.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
