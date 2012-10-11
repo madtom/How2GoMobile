@@ -8,7 +8,20 @@
 
 #import "CNX_FlipsideViewController.h"
 #import "CNX_ChargesViewController.h"
+#import "CNX_DataSelectViewController.h"
+#import "CNX_vehicleCalculator.h"
 
-@interface CNX_MainViewController : UIViewController <CNX_FlipsideViewControllerDelegate, CNX_ChargesViewControllerDelegate>
+@interface CNX_MainViewController : UIViewController <CNX_FlipsideViewControllerDelegate, CNX_ChargesViewControllerDelegate, CNX_DataSelectViewControllerDelegate, UITableViewDataSource, UITableViewDelegate> {
+    NSInteger fractionalDigets;
+    NSInteger digits;
+    NSIndexPath *selectedCell;
+    NSNumber *pickerValue;
+    CNX_vehicleCalculator *vehicle;
+}
+
+@property (nonatomic, retain) UIImage *busImage;
+@property (nonatomic, retain) UIImage *carImage;
+@property (weak, nonatomic) IBOutlet UITableView *myTableView;
+
 
 @end

@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D71A32D61614E73100719482 /* CNX_ExpensesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D71A32D51614E73100719482 /* CNX_ExpensesTableViewController.m */; };
+		D702A4B11627550000528FF0 /* CNX_vehicleCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = D702A4B01627550000528FF0 /* CNX_vehicleCalculator.m */; };
+		D702A4B51627552D00528FF0 /* CNX_ExtraCharges.m in Sources */ = {isa = PBXBuildFile; fileRef = D702A4B41627552D00528FF0 /* CNX_ExtraCharges.m */; };
+		D764F21316274F320094663B /* CNX_DataSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D764F21216274F320094663B /* CNX_DataSelectViewController.m */; };
 		D7F78EFF160CE70800C40E24 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7F78EFE160CE70800C40E24 /* UIKit.framework */; };
 		D7F78F01160CE70800C40E24 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7F78F00160CE70800C40E24 /* Foundation.framework */; };
 		D7F78F03160CE70800C40E24 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7F78F02160CE70800C40E24 /* CoreGraphics.framework */; };
@@ -26,8 +28,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D71A32D41614E73100719482 /* CNX_ExpensesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNX_ExpensesTableViewController.h; sourceTree = "<group>"; };
-		D71A32D51614E73100719482 /* CNX_ExpensesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNX_ExpensesTableViewController.m; sourceTree = "<group>"; };
+		D702A4AF1627550000528FF0 /* CNX_vehicleCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNX_vehicleCalculator.h; sourceTree = "<group>"; };
+		D702A4B01627550000528FF0 /* CNX_vehicleCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNX_vehicleCalculator.m; sourceTree = "<group>"; };
+		D702A4B31627552D00528FF0 /* CNX_ExtraCharges.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNX_ExtraCharges.h; sourceTree = "<group>"; };
+		D702A4B41627552D00528FF0 /* CNX_ExtraCharges.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNX_ExtraCharges.m; sourceTree = "<group>"; };
+		D764F21116274F320094663B /* CNX_DataSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNX_DataSelectViewController.h; sourceTree = "<group>"; };
+		D764F21216274F320094663B /* CNX_DataSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNX_DataSelectViewController.m; sourceTree = "<group>"; };
 		D7F78EFA160CE70800C40E24 /* How2Go.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = How2Go.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7F78EFE160CE70800C40E24 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D7F78F00160CE70800C40E24 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -98,6 +104,10 @@
 			children = (
 				D7F78F0D160CE70800C40E24 /* CNX_AppDelegate.h */,
 				D7F78F0E160CE70800C40E24 /* CNX_AppDelegate.m */,
+				D702A4AF1627550000528FF0 /* CNX_vehicleCalculator.h */,
+				D702A4B01627550000528FF0 /* CNX_vehicleCalculator.m */,
+				D702A4B31627552D00528FF0 /* CNX_ExtraCharges.h */,
+				D702A4B41627552D00528FF0 /* CNX_ExtraCharges.m */,
 				D7F78F25160CE73D00C40E24 /* Controller */,
 				D7F78F24160CE73600C40E24 /* Ressources */,
 				D7F78F05160CE70800C40E24 /* Supporting Files */,
@@ -138,8 +148,8 @@
 				D7F78F27160CE76700C40E24 /* CNX_ChargesViewController.m */,
 				D7F78F1C160CE70800C40E24 /* CNX_FlipsideViewController.h */,
 				D7F78F1D160CE70800C40E24 /* CNX_FlipsideViewController.m */,
-				D71A32D41614E73100719482 /* CNX_ExpensesTableViewController.h */,
-				D71A32D51614E73100719482 /* CNX_ExpensesTableViewController.m */,
+				D764F21116274F320094663B /* CNX_DataSelectViewController.h */,
+				D764F21216274F320094663B /* CNX_DataSelectViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -218,7 +228,9 @@
 				D7F78F1B160CE70800C40E24 /* CNX_MainViewController.m in Sources */,
 				D7F78F1E160CE70800C40E24 /* CNX_FlipsideViewController.m in Sources */,
 				D7F78F28160CE76700C40E24 /* CNX_ChargesViewController.m in Sources */,
-				D71A32D61614E73100719482 /* CNX_ExpensesTableViewController.m in Sources */,
+				D764F21316274F320094663B /* CNX_DataSelectViewController.m in Sources */,
+				D702A4B11627550000528FF0 /* CNX_vehicleCalculator.m in Sources */,
+				D702A4B51627552D00528FF0 /* CNX_ExtraCharges.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,15 +308,15 @@
 		D7F78F22160CE70800C40E24 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Thomas Dubiel (7PP82556QZ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Thomas Dubiel (7PP82556QZ)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "How2Go/How2Go-Prefix.pch";
 				INFOPLIST_FILE = "How2Go/How2Go-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2C6D4A17-1A74-4F24-B04B-471000C868F1";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2C6D4A17-1A74-4F24-B04B-471000C868F1";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -312,15 +324,15 @@
 		D7F78F23160CE70800C40E24 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Thomas Dubiel (7PP82556QZ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Thomas Dubiel (7PP82556QZ)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "How2Go/How2Go-Prefix.pch";
 				INFOPLIST_FILE = "How2Go/How2Go-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2C6D4A17-1A74-4F24-B04B-471000C868F1";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2C6D4A17-1A74-4F24-B04B-471000C868F1";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
