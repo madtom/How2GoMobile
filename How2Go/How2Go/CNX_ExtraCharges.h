@@ -27,6 +27,4 @@
 -(void)encodeWithCoder:(NSCoder *)aCoder;
 -(id)initWithCoder:(NSCoder *)aDecoder;
 
--(BOOL)save;
-
 @end

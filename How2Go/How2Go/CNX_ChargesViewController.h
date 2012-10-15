@@ -14,7 +14,7 @@
 - (void)chargesViewControllerDidFinish:(CNX_ChargesViewController *)controller;
 @end
 
-@interface CNX_ChargesViewController : UIViewController
+@interface CNX_ChargesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) id <CNX_ChargesViewControllerDelegate> delegate;
 

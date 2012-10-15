@@ -66,17 +66,5 @@
     return self;
 }
 
--(BOOL)save {
-    // Dateinamen ermitteln und festlegen
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSString *appSupport = [NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSString *dir = [NSString stringWithFormat:@"%@/HowToGo", appSupport];
-    [fileManager createDirectoryAtPath:dir withIntermediateDirectories:YES attributes:nil error:nil];
-    NSString *fileName = [dir stringByAppendingPathComponent:@"ExtraCharges.plist"];
-    
-    return [NSKeyedArchiver archiveRootObject:self toFile:fileName];
-    
-}
-
 
 @end
