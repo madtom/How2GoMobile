@@ -14,7 +14,7 @@
 
 @implementation CNX_MainViewController
 
-@synthesize busImage, carImage, myTableView;
+@synthesize busImage, carImage, myTableView, charges;
 
 - (void)viewDidLoad
 {
@@ -25,6 +25,7 @@
     
     // create a instance of vehicle
     vehicle = [[CNX_vehicleCalculator alloc] init];
+    charges = [[CNX_ExtraCharges alloc] init];
     
 }
 
@@ -54,6 +55,15 @@
 
 -(void)chargesViewControllerDidFinish:(CNX_ChargesViewController *)controller {
     [self dismissViewControllerAnimated:YES completion:nil];
+    self.charges = controller.charges;
+}
+
+-(CNX_ExtraCharges *) getCharges {
+    if ( charges == nil ) {
+        return nil;
+    } else {
+        return charges;
+    }
 }
 
 #pragma mark - Table View
@@ -130,6 +140,7 @@
              digits = 3;
              fractionalDigets = 2;
              pickerValue = [NSNumber numberWithDouble:vehicle.ticketPrice];
+             headerDescription = @"Please enter the fare of a trip with your favorit public transportation. This value is the baseline to check what is the best way to go.";
              break;
          case 1:
              switch (indexPath.row) {
@@ -137,16 +148,19 @@
                      digits = 2;
                      fractionalDigets = 3;
                      pickerValue = [NSNumber numberWithDouble:vehicle.fuelPrice];
+                     headerDescription = @"Please enter the curent price of a unit of fuel. This price is one of the mandatory costs to decide the best way to go.";
                      break;
                  case 1:
                      digits = 4;
                      fractionalDigets = 1;
                      pickerValue = [NSNumber numberWithDouble:vehicle.distance];
+                     headerDescription = @"Please enter the distance of your trip you have to go. The distance should be the route for going by car. The distance is one of the mandatory values to decide what is the best way to go.";
                      break;
                  case 2:
                      digits = 2;
                      fractionalDigets = 2;
                      pickerValue = [NSNumber numberWithDouble:vehicle.averageFuelConsumption];
+                     headerDescription = @"Please enter the average fuel consumption of your car. This value is mandatory to decide what is the best way to go.";
                      break;
              }
              break;
@@ -178,9 +192,6 @@
             break;
     }
     [myTableView reloadData];
-    //#warning Hier muss ich später die richtigen werte ersetzen
-    //    pickerValue = controller.selectedValue;
-    //    NSLog(@"selected value: %.3f", [pickerValue doubleValue]);
 }
 
 -(NSInteger)getFractionalDigets {
@@ -195,8 +206,13 @@
     return pickerValue;
 }
 
+-(NSString *)getHeaderDescription {
+    return headerDescription;
+}
+
 - (void)viewDidUnload {
     [self setMyTableView:nil];
+    [self setCostSwitch:nil];
     [super viewDidUnload];
 }
 @end

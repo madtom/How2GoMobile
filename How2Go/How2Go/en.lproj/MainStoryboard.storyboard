@@ -171,6 +171,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="costSwitch" destination="lYf-tK-OLu" id="Wez-Pt-GlO"/>
                         <outlet property="myTableView" destination="UGn-yY-h8J" id="hFc-z5-IEn"/>
                     </connections>
                 </viewController>
@@ -333,6 +334,9 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <connections>
+                                            <segue destination="pdd-5F-9rA" kind="modal" identifier="showDataPicker" id="zuR-6G-XyP"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -363,6 +367,9 @@
                             <constraint firstItem="ZHT-0P-TNv" firstAttribute="bottom" secondItem="VKw-FI-dqP" secondAttribute="bottom" type="default" id="ogR-1d-31p"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="myTableView" destination="ZHT-0P-TNv" id="uoY-Xc-z2l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="caG-WF-DIq" sceneMemberID="firstResponder"/>
             </objects>
@@ -419,51 +426,24 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="headerDescription" destination="qX1-hR-fk8" id="Mmq-3J-KDo"/>
                         <outlet property="picker" destination="GtR-ff-O49" id="FZh-AH-fIh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XxT-tt-Z4r" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="472" y="625"/>
+            <point key="canvasLocation" x="1023" y="30"/>
         </scene>
     </scenes>
     <resources>
         <image name="QuestionMark100.png" width="79" height="100"/>
     </resources>
-    <classes>
-        <class className="CNX_ChargesViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CNX_ChargesViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="done:"/>
-            </relationships>
-        </class>
-        <class className="CNX_DataSelectViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CNX_DataSelectViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="done:"/>
-                <relationship kind="outlet" name="picker" candidateClass="UIPickerView"/>
-                <relationship kind="outlet" name="selectedValue" candidateClass="NSNumber"/>
-            </relationships>
-        </class>
-        <class className="CNX_FlipsideViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CNX_FlipsideViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="done:"/>
-            </relationships>
-        </class>
-        <class className="CNX_MainViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CNX_MainViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="1Gv-iW-f8c"/>
+    </inferredMetricsTieBreakers>
 </document>

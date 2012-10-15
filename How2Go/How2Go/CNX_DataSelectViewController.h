@@ -15,6 +15,7 @@
 -(NSInteger)getFractionalDigets;
 -(NSInteger)getDigits;
 -(NSNumber *)getSelectedValue;
+-(NSString *)getHeaderDescription;
 @end
 
 @interface CNX_DataSelectViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate> {
@@ -28,6 +29,7 @@
 @property (weak, nonatomic) id <CNX_DataSelectViewControllerDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UIPickerView *picker;
 @property (nonatomic, retain) IBOutlet NSNumber *selectedValue;
+@property (weak, nonatomic) IBOutlet UILabel *headerDescription;
 
 
 - (IBAction)done:(id)sender;

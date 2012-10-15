@@ -14,14 +14,18 @@
 
 @implementation CNX_ChargesViewController
 
+@synthesize charges, myTableView;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    charges = [self.delegate getCharges];
 }
 
 - (void)viewDidUnload
 {
+    [self setMyTableView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -29,6 +33,10 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+
+-(double)kostenPerKM {
+    return charges.deprication + charges.chargesPerKM;
 }
 
 #pragma mark - Actions
@@ -88,7 +96,9 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
     }
     // Detail View Accessor hinzufügen
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    //if ( indexPath.section == 0 || indexPath.section == 1 ) {
+    //    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    // }
     
     // Number Formatter vorbereiten
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
@@ -96,82 +106,165 @@
     
     switch (indexPath.section) {
         case 0:
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             cell.textLabel.text = @"Car Price";
+            [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+            cell.detailTextLabel.text = [numberFormatter stringFromNumber:[NSNumber numberWithDouble:charges.carPrice]];
             break;
         case 1:
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             switch (indexPath.row) {
                 case 0:
                     cell.textLabel.text = @"Insurance";
+                    [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+                    cell.detailTextLabel.text = [numberFormatter stringFromNumber:[NSNumber numberWithDouble:charges.insurance]];
                     break;
                 case 1:
                     cell.textLabel.text = @"Car Tax";
+                    [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+                    cell.detailTextLabel.text = [numberFormatter stringFromNumber:[NSNumber numberWithDouble:charges.tax]];
                     break;
                 case 2:
                     cell.textLabel.text = @"Service";
+                    [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+                    cell.detailTextLabel.text = [numberFormatter stringFromNumber:[NSNumber numberWithDouble:charges.service]];
                     break;
             }
             break;
         case 2:
+            cell.accessoryType = UITableViewCellAccessoryNone;
             switch (indexPath.row) {
                 case 0:
                     cell.textLabel.text = @"Deprication";
+                    [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+                    [numberFormatter setMaximumFractionDigits:3];
+                    cell.detailTextLabel.text = [numberFormatter stringFromNumber:[NSNumber numberWithDouble:charges.deprication]];
                     break;
                 case 1:
                     cell.textLabel.text = @"Expenses";
+                    [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+                    [numberFormatter setMaximumFractionDigits:3];
+                    cell.detailTextLabel.text = [numberFormatter stringFromNumber:[NSNumber numberWithDouble:charges.chargesPerKM]];
                     break;
                 case 2:
                     cell.textLabel.text = @"Total";
+                    [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+                    [numberFormatter setMaximumFractionDigits:3];
+                    cell.detailTextLabel.text = [numberFormatter stringFromNumber:[NSNumber numberWithDouble:[self kostenPerKM]]];
                     break;
             }
             break;
         case 3:
+            cell.accessoryType = UITableViewCellAccessoryNone;
             switch (indexPath.row) {
                 case 0:
-                    cell.textLabel.text = @"Mileage";
+                    cell.textLabel.text = @"Life Time (years)";
+                    [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+                    cell.detailTextLabel.text = [numberFormatter stringFromNumber:[NSNumber numberWithDouble:charges.lifeTime]];
                     break;
                 case 1:
-                    cell.textLabel.text = @"Useful Life";
+                    cell.textLabel.text = @"Mileage Per Annum";
+                    [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+                    cell.detailTextLabel.text = [numberFormatter stringFromNumber:[NSNumber numberWithDouble:charges.milagePerAnno]];
                     break;
                 case 2:
-                    cell.textLabel.text = @"Total";
+                    cell.textLabel.text = @"Mileage Life Time";
+                    [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+                    cell.detailTextLabel.text = [numberFormatter stringFromNumber:[NSNumber numberWithDouble:charges.milageLife]];
                     break;
             }
     }
     return cell;
 }
 
-/*
+
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     //NSLog(@"Hier war er an Stelle %i, %i", indexPath.section, indexPath.row);
     selectedCell = indexPath;
     switch (indexPath.section) {
         case 0:
-            digits = 3;
-            fractionalDigets = 2;
-            pickerValue = [NSNumber numberWithDouble:vehicle.ticketPrice];
+            digits = 5;
+            fractionalDigets = 0;
+            pickerValue = [NSNumber numberWithDouble:charges.carPrice];
+            headerDescription = @"Please enter the original price of your car. This value is mandatory of all further calculations.";
             break;
         case 1:
             switch (indexPath.row) {
                 case 0:
-                    digits = 2;
-                    fractionalDigets = 3;
-                    pickerValue = [NSNumber numberWithDouble:vehicle.fuelPrice];
+                    digits = 3;
+                    fractionalDigets = 2;
+                    pickerValue = [NSNumber numberWithDouble:charges.insurance];
+                    headerDescription = @"Please enter the total amount for all insurances which are related to your car. This value is part of the expenses which are calculated by the tool.";
                     break;
                 case 1:
-                    digits = 4;
-                    fractionalDigets = 1;
-                    pickerValue = [NSNumber numberWithDouble:vehicle.distance];
+                    digits = 3;
+                    fractionalDigets = 2;
+                    pickerValue = [NSNumber numberWithDouble:charges.tax];
+                    headerDescription = @"Please enter the total amount of all taxes which are related to your car. This value is part of the expenses which are calculated by the tool.";
                     break;
                 case 2:
-                    digits = 2;
+                    digits = 4;
                     fractionalDigets = 2;
-                    pickerValue = [NSNumber numberWithDouble:vehicle.averageFuelConsumption];
+                    pickerValue = [NSNumber numberWithDouble:charges.service];
+                    headerDescription = @"Please enter the total amount of your yearly service fee which is related to your car. This value is part of the expenses which are calculated by this tool.";
                     break;
             }
             break;
     }
 }
-*/
+
+#pragma mark - Data Select View
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"showDataPicker"]) {
+        [[segue destinationViewController] setDelegate:self];
+    }
+}
+
+-(void) dataSelectViewControllerDidFinish:(CNX_DataSelectViewController *)controller
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    switch (selectedCell.section) {
+        case 0:
+            charges.carPrice = [controller.selectedValue doubleValue];
+            break;
+        case 1:
+            switch (selectedCell.row) {
+                case 0:
+                    charges.insurance = [controller.selectedValue doubleValue];
+                    break;
+                case 1:
+                    charges.tax = [controller.selectedValue doubleValue];
+                    break;
+                case 2:
+                    charges.service = [controller.selectedValue doubleValue];
+                    break;
+            }
+            break;
+    }
+    [myTableView reloadData];
+    //#warning Hier muss ich später die richtigen werte ersetzen
+    //    pickerValue = controller.selectedValue;
+    //    NSLog(@"selected value: %.3f", [pickerValue doubleValue]);
+}
+
+-(NSInteger)getFractionalDigets {
+    return fractionalDigets;
+}
+
+-(NSInteger)getDigits {
+    return digits;
+}
+
+-(NSNumber *)getSelectedValue {
+    return pickerValue;
+}
+
+-(NSString *)getHeaderDescription {
+    return headerDescription;
+}
 
 
 @end

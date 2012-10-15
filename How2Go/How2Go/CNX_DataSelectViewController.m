@@ -14,7 +14,7 @@
 
 @implementation CNX_DataSelectViewController
 
-@synthesize picker, selectedValue;
+@synthesize picker, selectedValue, headerDescription;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,6 +40,7 @@
 
 - (void)viewDidUnload {
     [self setPicker:nil];
+    [self setHeaderDescription:nil];
     [super viewDidUnload];
 }
 
@@ -49,6 +50,7 @@
     digits = [self.delegate getDigits];
     columns = digits + fractionalDigets;
     selectedValue = [self.delegate getSelectedValue];
+    headerDescription.text = [self.delegate getHeaderDescription];
     [picker reloadAllComponents];
     
     int counter, zahl, subtrahend;
