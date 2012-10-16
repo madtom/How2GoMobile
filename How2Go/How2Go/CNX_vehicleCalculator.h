@@ -22,7 +22,7 @@
 @property (assign) double ticketPrice, fuelPrice, averageFuelConsumption, distance;
 @property (readonly) double fuelConsumption;
 
--(double)calcFare:(bool)considerCharges withCharges:(CNX_ExtraCharges *)charges;
+-(double)calcFare:(BOOL)considerCharges withCharges:(CNX_ExtraCharges *)charges;
 
 // Protokollmethoden
 -(void)encodeWithCoder:(NSCoder *)aCoder;

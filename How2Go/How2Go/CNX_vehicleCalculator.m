@@ -17,9 +17,9 @@
     return self.averageFuelConsumption * self.distance / 100;
 }
 
--(double)calcFare:(bool)considerCharges withCharges:(CNX_ExtraCharges *)charges {
+-(double)calcFare:(BOOL)considerCharges withCharges:(CNX_ExtraCharges *)charges {
     
-    if (considerCharges == TRUE) {
+    if (considerCharges == 1) {
         
         return self.fuelConsumption * self.fuelPrice + ( ( charges.chargesPerKM + charges.deprication ) * self.distance );
     }

@@ -14,7 +14,8 @@
 
 @implementation CNX_MainViewController
 
-@synthesize busImage, carImage, myTableView, charges;
+@synthesize busImage, carImage, myTableView, charges, costSwitch;
+@synthesize imageView, resultLabel, costLabel;
 
 - (void)viewDidLoad
 {
@@ -33,6 +34,21 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - vehicle methods
+
+-(void)checkResult {
+    tripCosts = [vehicle calcFare:costSwitch.isOn withCharges:charges];
+    if ( tripCosts >= vehicle.ticketPrice ) {
+        imageView.image = busImage;
+        resultLabel.text = @"Go by Bus!";
+        costLabel.text = @"Trip Costs: %.2f €";
+    }
+    else {
+        imageView.image = carImage;
+        resultLabel.text = @"Go by Car!";
+    }
 }
 
 #pragma mark - Flipside View
@@ -56,6 +72,7 @@
 -(void)chargesViewControllerDidFinish:(CNX_ChargesViewController *)controller {
     [self dismissViewControllerAnimated:YES completion:nil];
     self.charges = controller.charges;
+    [self checkResult];
 }
 
 -(CNX_ExtraCharges *) getCharges {
@@ -192,6 +209,7 @@
             break;
     }
     [myTableView reloadData];
+    [self checkResult];
 }
 
 -(NSInteger)getFractionalDigets {
@@ -213,6 +231,12 @@
 - (void)viewDidUnload {
     [self setMyTableView:nil];
     [self setCostSwitch:nil];
+    [self setImageView:nil];
+    [self setResultLabel:nil];
+    [self setCostLabel:nil];
     [super viewDidUnload];
+}
+- (IBAction)costSwitchChanged:(id)sender {
+    [self checkResult];
 }
 @end

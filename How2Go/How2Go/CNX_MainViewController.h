@@ -19,6 +19,7 @@
     NSNumber *pickerValue;
     NSString *headerDescription;
     CNX_vehicleCalculator *vehicle;
+    double tripCosts;
 }
 
 -(CNX_ExtraCharges *)getCharges;
@@ -28,6 +29,10 @@
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property (nonatomic, retain) IBOutlet CNX_ExtraCharges *charges;
 @property (weak, nonatomic) IBOutlet UISwitch *costSwitch;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UILabel *resultLabel;
+@property (weak, nonatomic) IBOutlet UILabel *costLabel;
 
+- (IBAction)costSwitchChanged:(id)sender;
 
 @end
