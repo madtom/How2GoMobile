@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2843" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1929"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
     </dependencies>
     <scenes>
         <!--Main View Controller-->
@@ -322,7 +322,7 @@
                     <connections>
                         <outlet property="decisionText" destination="11h-G5-M0p" id="Kor-9W-Vcn"/>
                         <outlet property="firstText" destination="y0o-QO-0LS" id="ksW-Se-jvt"/>
-                        <outlet property="productOf" destination="uxj-52-Laj" id="afy-X6-rF9"/>
+                        <outlet property="productOff" destination="uxj-52-Laj" id="zvT-M7-lLw"/>
                         <outlet property="secondText" destination="qj7-lQ-zaU" id="eDP-4Q-Kal"/>
                     </connections>
                 </viewController>
@@ -470,6 +470,64 @@
     <resources>
         <image name="QuestionMark100.png" width="79" height="100"/>
     </resources>
+    <classes>
+        <class className="CNX_ChargesViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CNX_ChargesViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="clear:"/>
+                <relationship kind="action" name="done:"/>
+                <relationship kind="outlet" name="charges" candidateClass="CNX_ExtraCharges"/>
+                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="CNX_DataSelectViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CNX_DataSelectViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="done:"/>
+                <relationship kind="outlet" name="headerDescription" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="picker" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="selectedValue" candidateClass="NSNumber"/>
+            </relationships>
+        </class>
+        <class className="CNX_ExtraCharges" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CNX_ExtraCharges.h"/>
+        </class>
+        <class className="CNX_FlipsideViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CNX_FlipsideViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="done:"/>
+                <relationship kind="outlet" name="decisionText" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="firstText" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="productOff" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="secondText" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="CNX_MainViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CNX_MainViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="clear:"/>
+                <relationship kind="action" name="costSwitchChanged:"/>
+                <relationship kind="outlet" name="charges" candidateClass="CNX_ExtraCharges"/>
+                <relationship kind="outlet" name="costLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="costSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="hintLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="mainHeaderLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="resultLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="switchLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="NSNumber" superclassName="NSValue">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSNumber.h"/>
+        </class>
+        <class className="NSValue" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSValue.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
