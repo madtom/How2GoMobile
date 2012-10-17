@@ -17,6 +17,10 @@
 @interface CNX_FlipsideViewController : UIViewController
 
 @property (weak, nonatomic) id <CNX_FlipsideViewControllerDelegate> delegate;
+@property (weak, nonatomic) IBOutlet UILabel *productOff;
+@property (weak, nonatomic) IBOutlet UITextView *firstText;
+@property (weak, nonatomic) IBOutlet UITextView *secondText;
+@property (weak, nonatomic) IBOutlet UITextView *decisionText;
 
 - (IBAction)done:(id)sender;
 

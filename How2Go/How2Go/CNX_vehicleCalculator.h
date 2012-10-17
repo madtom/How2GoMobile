@@ -12,11 +12,11 @@
 @interface CNX_vehicleCalculator : NSObject <NSCoding> {
     
     // Instanzvariablen
-    double ticketPrice;
-    double fuelPrice;
-    double averageFuelConsumption;
-    double distance;
-    double fuelConsumption;
+//    double ticketPrice;
+//    double fuelPrice;
+//    double averageFuelConsumption;
+//    double distance;
+//    double fuelConsumption;
 }
 
 @property (assign) double ticketPrice, fuelPrice, averageFuelConsumption, distance;
@@ -27,5 +27,6 @@
 // Protokollmethoden
 -(void)encodeWithCoder:(NSCoder *)aCoder;
 -(id)initWithCoder:(NSCoder *)aDecoder;
+-(void)clearAllInstances;
 
 @end

@@ -10,7 +10,7 @@
 
 @implementation CNX_ExtraCharges
 
-@synthesize lifeTime, milagePerAnno, milageLife, deprication, chargesPerKM, sumCharges;
+@synthesize lifeTime, milagePerAnno, milageLife, deprication, chargesPerKM, sumCharges, sumCostsKM;
 @synthesize insurance, tax, carPrice, service;
 
 -(id)init {
@@ -46,6 +46,10 @@
     return self.sumCharges / self.milagePerAnno;
 }
 
+-(double)sumCostsKM {
+    return self.deprication + self.chargesPerKM;
+}
+
 -(void)encodeWithCoder:(NSCoder *)aCoder {
     [aCoder encodeDouble:[self carPrice] forKey:@"carPrice"];
     [aCoder encodeDouble:[self insurance] forKey:@"insurance"];
@@ -66,5 +70,11 @@
     return self;
 }
 
+-(void)clearAllInstances {
+    carPrice = 0;
+    insurance = 0;
+    tax = 0;
+    service = 0;
+}
 
 @end

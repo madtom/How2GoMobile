@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2843" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1929"/>
     </dependencies>
     <scenes>
         <!--Main View Controller-->
@@ -15,9 +15,9 @@
                             <navigationBar contentMode="scaleToFill" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="p9u-zs-qtD">
                                 <items>
                                     <navigationItem title="How 2 Go" id="Mpp-3x-1R9">
-                                        <barButtonItem key="rightBarButtonItem" id="wmC-kg-Xsc">
+                                        <barButtonItem key="leftBarButtonItem" id="wmC-kg-Xsc">
                                             <button key="customView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="10">
-                                                <rect key="frame" x="297" y="12" width="18" height="19"/>
+                                                <rect key="frame" x="5" y="12" width="18" height="19"/>
                                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                                                 <state key="normal">
                                                     <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
@@ -31,14 +31,18 @@
                                                 </connections>
                                             </button>
                                         </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="K9z-Kz-aDT">
+                                            <connections>
+                                                <action selector="clear:" destination="2" id="8CN-tt-sBG"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="10" preferredMaxLayoutWidth="320" translatesAutoresizingMaskIntoConstraints="NO" id="icd-Rv-uBj">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Main Header Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="10" preferredMaxLayoutWidth="320" translatesAutoresizingMaskIntoConstraints="NO" id="icd-Rv-uBj">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="53" id="qSR-yi-zNc"/>
                                 </constraints>
-                                <string key="text">Please enter the fare of your public transportation, the current price of gasoline and the distance to your destination. You can see the best choice in the buttom area.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -96,9 +100,9 @@
                                     <segue destination="bev-A0-Ket" kind="modal" identifier="showCharges" modalTransitionStyle="flipHorizontal" id="8Od-EV-ThK"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Consider All" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmx-dW-3Xf">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Switch Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmx-dW-3Xf">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="GzE-cG-Zf9"/>
+                                    <constraint firstAttribute="width" constant="168" id="iua-Ud-iyC"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -119,15 +123,12 @@
                                             <constraint firstAttribute="height" constant="80" id="Sj2-EN-VGi"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Stay at home!" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R36-T0-WZZ">
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="162" id="Zwx-zV-zic"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Result Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="162" translatesAutoresizingMaskIntoConstraints="NO" id="R36-T0-WZZ">
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Costs of Trip:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLO-xK-gOX">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Vehicle's costs Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLO-xK-gOX">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="Gze-H3-ilN"/>
                                         </constraints>
@@ -135,16 +136,28 @@
                                         <color key="textColor" red="0.70196080207824707" green="0.70196080207824707" blue="0.70196080207824707" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Hint Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qab-Nz-971">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="Znq-yZ-vGe"/>
+                                            <constraint firstAttribute="width" constant="162" id="aSF-QP-s4S"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="R36-T0-WZZ" firstAttribute="top" secondItem="akh-0Z-Tzr" secondAttribute="top" type="default" id="5RK-vy-Ntx"/>
-                                    <constraint firstItem="R36-T0-WZZ" firstAttribute="leading" secondItem="akh-0Z-Tzr" secondAttribute="leading" constant="108" id="6Gt-mY-eDQ"/>
+                                    <constraint firstItem="Qab-Nz-971" firstAttribute="trailing" secondItem="JLO-xK-gOX" secondAttribute="trailing" type="default" id="7Ke-RR-xmt"/>
                                     <constraint firstItem="JLO-xK-gOX" firstAttribute="leading" secondItem="4c9-Me-fx9" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="EFp-C4-OkJ"/>
+                                    <constraint firstItem="Qab-Nz-971" firstAttribute="top" secondItem="akh-0Z-Tzr" secondAttribute="top" type="default" id="ElX-Jx-16R"/>
+                                    <constraint firstItem="Qab-Nz-971" firstAttribute="trailing" secondItem="R36-T0-WZZ" secondAttribute="trailing" type="default" id="GDN-Yy-uXS"/>
                                     <constraint firstAttribute="centerY" secondItem="R36-T0-WZZ" secondAttribute="centerY" type="user" id="GLs-qR-IGT"/>
                                     <constraint firstItem="JLO-xK-gOX" firstAttribute="bottom" secondItem="4c9-Me-fx9" secondAttribute="bottom" type="default" id="c9T-Ii-4si"/>
                                     <constraint firstItem="4c9-Me-fx9" firstAttribute="leading" secondItem="akh-0Z-Tzr" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="c9V-Wh-ahm"/>
-                                    <constraint firstItem="R36-T0-WZZ" firstAttribute="trailing" secondItem="JLO-xK-gOX" secondAttribute="trailing" type="default" id="d5J-l7-LsC"/>
+                                    <constraint firstItem="Qab-Nz-971" firstAttribute="leading" secondItem="akh-0Z-Tzr" secondAttribute="leading" constant="108" id="gbt-4H-c4a"/>
+                                    <constraint firstItem="Qab-Nz-971" firstAttribute="leading" secondItem="4c9-Me-fx9" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="lSf-5b-zIO"/>
                                     <constraint firstItem="R36-T0-WZZ" firstAttribute="leading" secondItem="4c9-Me-fx9" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="xOm-7A-YRo"/>
                                     <constraint firstAttribute="centerY" secondItem="4c9-Me-fx9" secondAttribute="centerY" type="user" id="xcP-VE-7TG"/>
                                 </constraints>
@@ -153,32 +166,35 @@
                         <color key="backgroundColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="akh-0Z-Tzr" secondAttribute="bottom" constant="50" id="3oc-jb-QUu"/>
-                            <constraint firstItem="CaG-yK-sWm" firstAttribute="centerY" secondItem="lYf-tK-OLu" secondAttribute="centerY" type="default" id="5LR-XM-jTq"/>
-                            <constraint firstAttribute="trailing" secondItem="CaG-yK-sWm" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="7je-eM-G8Y"/>
+                            <constraint firstAttribute="trailing" secondItem="CaG-yK-sWm" secondAttribute="trailing" constant="25" id="4jC-ce-33J"/>
+                            <constraint firstAttribute="trailing" secondItem="lYf-tK-OLu" secondAttribute="trailing" constant="61" id="6hS-0U-bbt"/>
                             <constraint firstItem="UGn-yY-h8J" firstAttribute="top" secondItem="3" secondAttribute="top" constant="102" id="AiF-vI-GUh"/>
                             <constraint firstItem="p9u-zs-qtD" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="Hq6-SL-3cv"/>
                             <constraint firstItem="UGn-yY-h8J" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="ILC-6h-SOC"/>
                             <constraint firstItem="akh-0Z-Tzr" firstAttribute="top" secondItem="gmx-dW-3Xf" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="TII-KL-OLh"/>
                             <constraint firstItem="akh-0Z-Tzr" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="WXi-3o-6fo"/>
                             <constraint firstItem="UGn-yY-h8J" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="XlT-AH-9nj"/>
-                            <constraint firstItem="gmx-dW-3Xf" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="55" id="Zhn-du-r5n"/>
                             <constraint firstAttribute="trailing" secondItem="akh-0Z-Tzr" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="dRk-4h-skh"/>
                             <constraint firstItem="p9u-zs-qtD" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="fAy-Gx-OE2"/>
                             <constraint firstItem="p9u-zs-qtD" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="jvN-jS-coQ"/>
                             <constraint firstItem="icd-Rv-uBj" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="l2U-qb-i60"/>
-                            <constraint firstAttribute="trailing" secondItem="lYf-tK-OLu" secondAttribute="trailing" constant="69" id="nWa-gB-bpW"/>
+                            <constraint firstItem="CaG-yK-sWm" firstAttribute="bottom" secondItem="lYf-tK-OLu" secondAttribute="bottom" type="default" id="lzy-Tm-TDh"/>
                             <constraint firstItem="lYf-tK-OLu" firstAttribute="top" secondItem="UGn-yY-h8J" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="ozb-P3-tab"/>
                             <constraint firstItem="icd-Rv-uBj" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="pMF-IY-fV0"/>
                             <constraint firstItem="icd-Rv-uBj" firstAttribute="top" secondItem="p9u-zs-qtD" secondAttribute="bottom" type="default" id="uAi-al-F1X"/>
                             <constraint firstItem="gmx-dW-3Xf" firstAttribute="centerY" secondItem="lYf-tK-OLu" secondAttribute="centerY" type="default" id="vre-zy-aB0"/>
+                            <constraint firstItem="lYf-tK-OLu" firstAttribute="leading" secondItem="gmx-dW-3Xf" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="yp7-wv-FJl"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="costLabel" destination="JLO-xK-gOX" id="zgI-gc-9uj"/>
                         <outlet property="costSwitch" destination="lYf-tK-OLu" id="Wez-Pt-GlO"/>
+                        <outlet property="hintLabel" destination="Qab-Nz-971" id="igt-Es-Wka"/>
                         <outlet property="imageView" destination="4c9-Me-fx9" id="uIi-9z-IXz"/>
+                        <outlet property="mainHeaderLabel" destination="icd-Rv-uBj" id="9c3-1f-kCD"/>
                         <outlet property="myTableView" destination="UGn-yY-h8J" id="hFc-z5-IEn"/>
                         <outlet property="resultLabel" destination="R36-T0-WZZ" id="nDQ-CH-Q5Q"/>
+                        <outlet property="switchLabel" destination="gmx-dW-3Xf" id="B0q-Nc-LjZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
@@ -210,13 +226,13 @@
                                 </constraints>
                                 <string key="text">How 2 Go will give you a quick overview and a good  feeling what is the best way to do your next trip. Based on statistical values, a car will be used about 12.4 years by 19,000 km per year. All expenses are based on those values. </string>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qj7-lQ-zaU">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="103" id="qbj-K8-Kpu"/>
+                                    <constraint firstAttribute="height" constant="106" id="jwX-mP-FNu"/>
                                 </constraints>
                                 <string key="text">Please note that the calculation of the expenses and the decission to take a means of transport be different to the real costs of your trip. The app will give you a hint what cold be the best choice. </string>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -246,17 +262,6 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="www.crazynexus.de" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="fCw-Z0-F1R">
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" none="YES" link="YES" staticText="YES"/>
-                                </accessibility>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="Hl6-ZZ-kgC"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Version 1.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="PKH-ue-nzN">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="yxV-Xm-OQH"/>
@@ -273,13 +278,25 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="www.crazynexus.de" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Pi6-xV-qMf">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="S68-ze-ECP"/>
+                                    <constraint firstAttribute="width" constant="240" id="l2T-pD-GY3"/>
+                                </constraints>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="uxj-52-Laj" firstAttribute="leading" secondItem="7" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="0OT-9L-k7g"/>
+                            <constraint firstAttribute="bottom" secondItem="Pi6-xV-qMf" secondAttribute="bottom" constant="13" id="1EX-Mq-eM2"/>
                             <constraint firstItem="0x4-R2-dWL" firstAttribute="top" secondItem="uxj-52-Laj" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="4io-XV-APB"/>
                             <constraint firstItem="PKH-ue-nzN" firstAttribute="trailing" secondItem="0x4-R2-dWL" secondAttribute="trailing" type="default" id="5bY-FA-lbJ"/>
-                            <constraint firstItem="11h-G5-M0p" firstAttribute="leading" secondItem="fCw-Z0-F1R" secondAttribute="leading" type="default" id="6bb-M1-CNY"/>
+                            <constraint firstItem="Pi6-xV-qMf" firstAttribute="centerX" secondItem="11h-G5-M0p" secondAttribute="centerX" type="default" id="6og-1I-GQp"/>
                             <constraint firstItem="uxj-52-Laj" firstAttribute="top" secondItem="PKH-ue-nzN" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Apw-FG-sdh"/>
                             <constraint firstAttribute="bottom" secondItem="qj7-lQ-zaU" secondAttribute="bottom" constant="84" id="CKM-Vk-RLd"/>
                             <constraint firstItem="y0o-QO-0LS" firstAttribute="top" secondItem="7" secondAttribute="top" constant="153" id="Cxq-6m-53N"/>
@@ -287,23 +304,27 @@
                             <constraint firstItem="12" firstAttribute="leading" secondItem="7" secondAttribute="leading" type="default" id="FkG-dH-3qI"/>
                             <constraint firstItem="tGr-hw-d7h" firstAttribute="leading" secondItem="7" secondAttribute="leading" constant="15" id="IRR-2G-2Jq"/>
                             <constraint firstItem="qj7-lQ-zaU" firstAttribute="leading" secondItem="y0o-QO-0LS" secondAttribute="leading" type="default" id="JtG-pf-O4q"/>
-                            <constraint firstItem="fCw-Z0-F1R" firstAttribute="top" secondItem="11h-G5-M0p" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Ql2-uL-21S"/>
                             <constraint firstItem="y0o-QO-0LS" firstAttribute="trailing" secondItem="0x4-R2-dWL" secondAttribute="trailing" type="default" id="S4V-by-Lco"/>
                             <constraint firstItem="PKH-ue-nzN" firstAttribute="leading" secondItem="0x4-R2-dWL" secondAttribute="leading" type="default" id="SdO-F7-IDe"/>
-                            <constraint firstAttribute="bottom" secondItem="fCw-Z0-F1R" secondAttribute="bottom" constant="14" id="Soa-FW-nOw"/>
                             <constraint firstItem="qj7-lQ-zaU" firstAttribute="trailing" secondItem="y0o-QO-0LS" secondAttribute="trailing" type="default" id="WsK-Y3-eG4"/>
+                            <constraint firstAttribute="bottom" secondItem="11h-G5-M0p" secondAttribute="bottom" constant="43" id="YFo-ew-hdp"/>
                             <constraint firstAttribute="trailing" secondItem="uxj-52-Laj" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ZC5-5V-CWv"/>
                             <constraint firstItem="11h-G5-M0p" firstAttribute="trailing" secondItem="qj7-lQ-zaU" secondAttribute="trailing" type="default" id="Zeo-OF-5PB"/>
                             <constraint firstItem="PKH-ue-nzN" firstAttribute="trailing" secondItem="tGr-hw-d7h" secondAttribute="trailing" type="default" id="azz-YI-kuu"/>
                             <constraint firstItem="12" firstAttribute="trailing" secondItem="7" secondAttribute="trailing" type="default" id="b3m-Ew-e8X"/>
                             <constraint firstItem="tGr-hw-d7h" firstAttribute="leading" secondItem="PKH-ue-nzN" secondAttribute="leading" type="default" id="ePw-ao-o98"/>
-                            <constraint firstItem="11h-G5-M0p" firstAttribute="trailing" secondItem="fCw-Z0-F1R" secondAttribute="trailing" type="default" id="lCg-UE-Ycm"/>
                             <constraint firstItem="0x4-R2-dWL" firstAttribute="leading" secondItem="y0o-QO-0LS" secondAttribute="leading" type="default" id="rFG-yK-L8W"/>
                             <constraint firstItem="12" firstAttribute="top" secondItem="7" secondAttribute="top" type="default" id="swR-hf-6uj"/>
                             <constraint firstItem="tGr-hw-d7h" firstAttribute="top" secondItem="7" secondAttribute="top" constant="54" id="tpf-uV-6ta"/>
                             <constraint firstItem="qj7-lQ-zaU" firstAttribute="leading" secondItem="11h-G5-M0p" secondAttribute="leading" type="default" id="wKD-8W-OpN"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="decisionText" destination="11h-G5-M0p" id="Kor-9W-Vcn"/>
+                        <outlet property="firstText" destination="y0o-QO-0LS" id="ksW-Se-jvt"/>
+                        <outlet property="productOf" destination="uxj-52-Laj" id="afy-X6-rF9"/>
+                        <outlet property="secondText" destination="qj7-lQ-zaU" id="eDP-4Q-Kal"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8" sceneMemberID="firstResponder"/>
             </objects>
@@ -353,9 +374,14 @@
                             <navigationBar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="mWl-sM-sGZ">
                                 <items>
                                     <navigationItem title="Additional Expenses" id="88A-vP-MoW">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="IGM-7P-Vyb">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="save" id="IGM-7P-Vyb">
                                             <connections>
                                                 <action selector="done:" destination="bev-A0-Ket" id="h3K-3k-qiJ"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="s9Z-tT-VoS">
+                                            <connections>
+                                                <action selector="clear:" destination="bev-A0-Ket" id="gID-C0-EoL"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -392,7 +418,7 @@
                             <navigationBar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="gZK-9G-qQq">
                                 <items>
                                     <navigationItem title="Data Selection" id="efe-1s-Y1F">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="5zV-VV-XXf">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="save" id="5zV-VV-XXf">
                                             <connections>
                                                 <action selector="done:" destination="pdd-5F-9rA" id="r7z-Ns-EIl"/>
                                             </connections>
@@ -444,55 +470,6 @@
     <resources>
         <image name="QuestionMark100.png" width="79" height="100"/>
     </resources>
-    <classes>
-        <class className="CNX_ChargesViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CNX_ChargesViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="done:"/>
-                <relationship kind="outlet" name="charges" candidateClass="CNX_ExtraCharges"/>
-                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="CNX_DataSelectViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CNX_DataSelectViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="done:"/>
-                <relationship kind="outlet" name="headerDescription" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="picker" candidateClass="UIPickerView"/>
-                <relationship kind="outlet" name="selectedValue" candidateClass="NSNumber"/>
-            </relationships>
-        </class>
-        <class className="CNX_ExtraCharges" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CNX_ExtraCharges.h"/>
-        </class>
-        <class className="CNX_FlipsideViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CNX_FlipsideViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="done:"/>
-            </relationships>
-        </class>
-        <class className="CNX_MainViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CNX_MainViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="costSwitchChanged:"/>
-                <relationship kind="outlet" name="charges" candidateClass="CNX_ExtraCharges"/>
-                <relationship kind="outlet" name="costLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="costSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="resultLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="NSNumber" superclassName="NSValue">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSNumber.h"/>
-        </class>
-        <class className="NSValue" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSValue.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

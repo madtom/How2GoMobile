@@ -14,6 +14,8 @@
 
 @implementation CNX_FlipsideViewController
 
+@synthesize productOff, firstText, secondText, decisionText;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -24,6 +26,10 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    [self setProductOff:nil];
+    [self setFirstText:nil];
+    [self setSecondText:nil];
+    [self setDecisionText:nil];
 }
 
 #pragma mark - Actions
@@ -33,4 +39,8 @@
     [self.delegate flipsideViewControllerDidFinish:self];
 }
 
+- (void)viewDidUnload {
+
+    [super viewDidUnload];
+}
 @end

@@ -22,17 +22,21 @@
     double tripCosts;
 }
 
--(CNX_ExtraCharges *)getCharges;
+- (CNX_ExtraCharges *)getCharges;
+- (IBAction)costSwitchChanged:(id)sender;
+- (IBAction)clear:(id)sender;
 
 @property (nonatomic, retain) UIImage *busImage;
 @property (nonatomic, retain) UIImage *carImage;
+@property (nonatomic, retain) UIImage *questionImage;
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property (nonatomic, retain) IBOutlet CNX_ExtraCharges *charges;
 @property (weak, nonatomic) IBOutlet UISwitch *costSwitch;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *resultLabel;
 @property (weak, nonatomic) IBOutlet UILabel *costLabel;
-
-- (IBAction)costSwitchChanged:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *switchLabel;
+@property (weak, nonatomic) IBOutlet UILabel *mainHeaderLabel;
+@property (weak, nonatomic) IBOutlet UILabel *hintLabel;
 
 @end

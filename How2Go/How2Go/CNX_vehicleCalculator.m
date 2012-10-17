@@ -47,4 +47,11 @@
     return self;
 }
 
+-(void)clearAllInstances {
+    ticketPrice = 0;
+    fuelPrice = 0;
+    averageFuelConsumption = 0;
+    distance = 0;
+}
+
 @end

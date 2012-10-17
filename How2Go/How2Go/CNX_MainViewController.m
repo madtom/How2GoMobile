@@ -14,8 +14,10 @@
 
 @implementation CNX_MainViewController
 
-@synthesize busImage, carImage, myTableView, charges, costSwitch;
-@synthesize imageView, resultLabel, costLabel;
+@synthesize busImage, carImage, myTableView, charges, costSwitch, questionImage;
+@synthesize imageView, resultLabel, costLabel, switchLabel, mainHeaderLabel, hintLabel;
+
+#pragma mark - Main View
 
 - (void)viewDidLoad
 {
@@ -23,31 +25,136 @@
 	// Do any additional setup after loading the view, typically from a nib.
     busImage = [UIImage imageNamed:@"Bus_100.png"];
     carImage = [UIImage imageNamed:@"Car_100.png"];
+    questionImage = [UIImage imageNamed:@"QuestionMark100.png"];
+    switchLabel.text = @"Use Expenses";
+    hintLabel.text = @"";
+    mainHeaderLabel.text = @"Please enter the fare of your public transportation, the current price of gasoline and the distance to your destination. You can see the best choice in the buttom area.";
     
-    // create a instance of vehicle
-    vehicle = [[CNX_vehicleCalculator alloc] init];
-    charges = [[CNX_ExtraCharges alloc] init];
+    // load existing files if available or create new instances
+    [self openArchives];
     
+    // register for notification UIApplicationDidEnterBackgroundNotification
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(saveArchives:)
+                                                 name:UIApplicationDidEnterBackgroundNotification
+                                               object:nil];
+    
+    // check the charges and set the costSwitch
+    [self setCostSwitchState];
+    [self checkResult];
+}
+
+-(void)setCostSwitchState {
+    if ( charges.sumCostsKM == 0) {
+        [costSwitch setOn:NO animated:YES];
+    } else {
+        [costSwitch setOn:YES animated:YES];
+    }
+}
+
+-(void)openArchives {
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *vehicleFilePath = [documentsPath stringByAppendingPathComponent:@"vehicle.plist"];
+    NSString *chargesFilePath = [documentsPath stringByAppendingPathComponent:@"charges.plist"];
+    BOOL vehicleExist = [fileManager fileExistsAtPath:vehicleFilePath];
+    BOOL chargesExist = [fileManager fileExistsAtPath:chargesFilePath];
+    
+    // if vehicle archive exist, load otherwise create a new
+    if (vehicleExist) {
+        vehicle = [NSKeyedUnarchiver unarchiveObjectWithFile:vehicleFilePath];
+    }
+    else {
+        vehicle = [CNX_vehicleCalculator new];
+    }
+    
+    // if charges archive exist, load otherwise craete a new
+    if (chargesExist) {
+        charges = [NSKeyedUnarchiver unarchiveObjectWithFile:chargesFilePath];
+    }
+    else {
+        charges = [CNX_ExtraCharges new];
+    }
+}
+
+-(void)saveArchives: (NSNotificationCenter *) notification {
+    NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *vehicleFilePath = [documentsPath stringByAppendingPathComponent:@"vehicle.plist"];
+    NSString *chargesFilePath = [documentsPath stringByAppendingPathComponent:@"charges.plist"];
+    [NSKeyedArchiver archiveRootObject:vehicle toFile:vehicleFilePath];
+    [NSKeyedArchiver archiveRootObject:charges toFile:chargesFilePath];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    [self saveArchives:nil];
+    [self setMyTableView:nil];
+    [self setCostSwitch:nil];
+    [self setImageView:nil];
+    [self setResultLabel:nil];
+    [self setCostLabel:nil];
+    
+}
+
+- (void)viewDidUnload {
+    // depricated in iOS 6.0
+    [self setSwitchLabel:nil];
+    [self setMainHeaderLabel:nil];
+    [self setHintLabel:nil];
+    [super viewDidUnload];
+}
+
+- (IBAction)costSwitchChanged:(id)sender {
+    [self checkHint];
+    [self checkResult];
+}
+
+-(void)checkHint {
+    //hintLabel.textColor =
+    if ( charges.sumCostsKM == 0 && costSwitch.isOn == 1 ) {
+        hintLabel.text = @"Please add Expenses ^^";
+    }
+    else {
+        hintLabel.text = @"";
+    }
+}
+
+- (IBAction)clear:(id)sender {
+    [vehicle clearAllInstances];
+    [charges clearAllInstances];
+    [myTableView reloadData];
+    [self setCostSwitchState];
+    [self checkHint];
+    [self checkResult];
 }
 
 #pragma mark - vehicle methods
 
 -(void)checkResult {
+
+    // Tripkosten berechnen
     tripCosts = [vehicle calcFare:costSwitch.isOn withCharges:charges];
-    if ( tripCosts >= vehicle.ticketPrice ) {
-        imageView.image = busImage;
-        resultLabel.text = @"Go by Bus!";
-        costLabel.text = @"Trip Costs: %.2f €";
+    if (tripCosts == 0) {
+        imageView.image = questionImage;
+        costLabel.text = @"";
+        resultLabel.text = @"Please enter all required values above";
     }
     else {
-        imageView.image = carImage;
-        resultLabel.text = @"Go by Car!";
+        // Number Formatter vorbereiten
+        NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+        [numberFormatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
+        [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+        costLabel.text = [NSString stringWithFormat:@"Vehicle's Costs: %@", [numberFormatter stringFromNumber:[NSNumber numberWithDouble:tripCosts]]];
+        if ( tripCosts >= vehicle.ticketPrice ) {
+            imageView.image = busImage;
+            resultLabel.text = @"Take the Bus!";
+        }
+        else {
+            imageView.image = carImage;
+            resultLabel.text = @"Take the Car!";
+        }
     }
 }
 
@@ -72,6 +179,8 @@
 -(void)chargesViewControllerDidFinish:(CNX_ChargesViewController *)controller {
     [self dismissViewControllerAnimated:YES completion:nil];
     self.charges = controller.charges;
+    [self setCostSwitchState];
+    [self checkHint];
     [self checkResult];
 }
 
@@ -228,15 +337,6 @@
     return headerDescription;
 }
 
-- (void)viewDidUnload {
-    [self setMyTableView:nil];
-    [self setCostSwitch:nil];
-    [self setImageView:nil];
-    [self setResultLabel:nil];
-    [self setCostLabel:nil];
-    [super viewDidUnload];
-}
-- (IBAction)costSwitchChanged:(id)sender {
-    [self checkResult];
-}
+
+
 @end

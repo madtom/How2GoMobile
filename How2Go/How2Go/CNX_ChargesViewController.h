@@ -30,5 +30,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 
 - (IBAction)done:(id)sender;
+- (IBAction)clear:(id)sender;
 
 @end

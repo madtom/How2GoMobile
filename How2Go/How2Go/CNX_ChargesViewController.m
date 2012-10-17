@@ -16,6 +16,8 @@
 
 @synthesize charges, myTableView;
 
+#pragma mark - Charges View
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -23,9 +25,13 @@
     charges = [self.delegate getCharges];
 }
 
+-(void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    [self setMyTableView:nil];    
+}
+
 - (void)viewDidUnload
 {
-    [self setMyTableView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -35,18 +41,18 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
--(double)kostenPerKM {
-    return charges.deprication + charges.chargesPerKM;
-}
-
-#pragma mark - Actions
-
 - (IBAction)done:(id)sender
 {
     [self.delegate chargesViewControllerDidFinish:self];
 }
 
+- (IBAction)clear:(id)sender {
+    [charges clearAllInstances];
+    [myTableView reloadData];
+}
+
 #pragma mark - Table View
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 4;
 }
@@ -95,10 +101,6 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
     }
-    // Detail View Accessor hinzufügen
-    //if ( indexPath.section == 0 || indexPath.section == 1 ) {
-    //    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    // }
     
     // Number Formatter vorbereiten
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
@@ -150,7 +152,7 @@
                     cell.textLabel.text = @"Total";
                     [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
                     [numberFormatter setMaximumFractionDigits:3];
-                    cell.detailTextLabel.text = [numberFormatter stringFromNumber:[NSNumber numberWithDouble:[self kostenPerKM]]];
+                    cell.detailTextLabel.text = [numberFormatter stringFromNumber:[NSNumber numberWithDouble:charges.sumCostsKM]];
                     break;
             }
             break;
@@ -265,6 +267,5 @@
 -(NSString *)getHeaderDescription {
     return headerDescription;
 }
-
 
 @end
