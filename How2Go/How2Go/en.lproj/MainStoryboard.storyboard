@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2843" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1929"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
     </dependencies>
     <scenes>
         <!--Main View Controller-->
@@ -322,7 +322,7 @@
                     <connections>
                         <outlet property="decisionText" destination="11h-G5-M0p" id="Kor-9W-Vcn"/>
                         <outlet property="firstText" destination="y0o-QO-0LS" id="ksW-Se-jvt"/>
-                        <outlet property="productOf" destination="uxj-52-Laj" id="afy-X6-rF9"/>
+                        <outlet property="productOff" destination="uxj-52-Laj" id="zvT-M7-lLw"/>
                         <outlet property="secondText" destination="qj7-lQ-zaU" id="eDP-4Q-Kal"/>
                     </connections>
                 </viewController>
