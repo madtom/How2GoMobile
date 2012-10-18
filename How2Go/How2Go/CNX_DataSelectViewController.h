@@ -16,6 +16,7 @@
 -(NSInteger)getDigits;
 -(NSNumber *)getSelectedValue;
 -(NSString *)getHeaderDescription;
+-(NSString *)getNavDescription;
 @end
 
 @interface CNX_DataSelectViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate> {
@@ -30,6 +31,7 @@
 @property (weak, nonatomic) IBOutlet UIPickerView *picker;
 @property (nonatomic, retain) IBOutlet NSNumber *selectedValue;
 @property (weak, nonatomic) IBOutlet UILabel *headerDescription;
+@property (weak, nonatomic) IBOutlet UINavigationItem *navHeaderText;
 
 
 - (IBAction)done:(id)sender;

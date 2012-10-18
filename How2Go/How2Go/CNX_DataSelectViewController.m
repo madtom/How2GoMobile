@@ -14,7 +14,7 @@
 
 @implementation CNX_DataSelectViewController
 
-@synthesize picker, selectedValue, headerDescription;
+@synthesize picker, selectedValue, headerDescription, navHeaderText;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,7 +29,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    headerDescription.text = @" ";
+    headerDescription.text = @"";
     
 }
 
@@ -42,11 +42,13 @@
 - (void)viewDidUnload {
     [self setPicker:nil];
     [self setHeaderDescription:nil];
+    [self setNavHeaderText:nil];
     [super viewDidUnload];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    navHeaderText.title = [self.delegate getNavDescription];
     fractionalDigets = [self.delegate getFractionalDigets];
     digits = [self.delegate getDigits];
     columns = digits + fractionalDigets;

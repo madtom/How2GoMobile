@@ -10,6 +10,7 @@
 		D702A4B11627550000528FF0 /* CNX_vehicleCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = D702A4B01627550000528FF0 /* CNX_vehicleCalculator.m */; };
 		D702A4B51627552D00528FF0 /* CNX_ExtraCharges.m in Sources */ = {isa = PBXBuildFile; fileRef = D702A4B41627552D00528FF0 /* CNX_ExtraCharges.m */; };
 		D702A4B716277A2200528FF0 /* QuestionMark100.png in Resources */ = {isa = PBXBuildFile; fileRef = D702A4B616277A2200528FF0 /* QuestionMark100.png */; };
+		D713DA9C16302DFA002F516A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D713DA9E16302DFA002F516A /* Localizable.strings */; };
 		D757A712162C331400C5675A /* Icon_57.png in Resources */ = {isa = PBXBuildFile; fileRef = D757A711162C331400C5675A /* Icon_57.png */; };
 		D757A715162C331B00C5675A /* Icon_114.png in Resources */ = {isa = PBXBuildFile; fileRef = D757A714162C331B00C5675A /* Icon_114.png */; };
 		D764F21316274F320094663B /* CNX_DataSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D764F21216274F320094663B /* CNX_DataSelectViewController.m */; };
@@ -36,6 +37,9 @@
 		D702A4B31627552D00528FF0 /* CNX_ExtraCharges.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNX_ExtraCharges.h; sourceTree = "<group>"; };
 		D702A4B41627552D00528FF0 /* CNX_ExtraCharges.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNX_ExtraCharges.m; sourceTree = "<group>"; };
 		D702A4B616277A2200528FF0 /* QuestionMark100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = QuestionMark100.png; sourceTree = "<group>"; };
+		D713DA9D16302DFA002F516A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D713DA9F16302E23002F516A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D713DAA016302E23002F516A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D757A711162C331400C5675A /* Icon_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_57.png; sourceTree = "<group>"; };
 		D757A714162C331B00C5675A /* Icon_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_114.png; sourceTree = "<group>"; };
 		D764F21116274F320094663B /* CNX_DataSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNX_DataSelectViewController.h; sourceTree = "<group>"; };
@@ -144,6 +148,7 @@
 				D7F78F2D160CF3C200C40E24 /* Bus_100.png */,
 				D7F78F2E160CF3C200C40E24 /* Car_100.png */,
 				D7F78F16160CE70800C40E24 /* MainStoryboard.storyboard */,
+				D713DA9E16302DFA002F516A /* Localizable.strings */,
 			);
 			name = Ressources;
 			sourceTree = "<group>";
@@ -199,6 +204,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				de,
 			);
 			mainGroup = D7F78EEF160CE70800C40E24;
 			productRefGroup = D7F78EFB160CE70800C40E24 /* Products */;
@@ -225,6 +231,7 @@
 				D702A4B716277A2200528FF0 /* QuestionMark100.png in Resources */,
 				D757A712162C331400C5675A /* Icon_57.png in Resources */,
 				D757A715162C331B00C5675A /* Icon_114.png in Resources */,
+				D713DA9C16302DFA002F516A /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,10 +256,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		D713DA9E16302DFA002F516A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D713DA9D16302DFA002F516A /* en */,
+				D713DA9F16302E23002F516A /* de */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		D7F78F07160CE70800C40E24 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D7F78F08160CE70800C40E24 /* en */,
+				D713DAA016302E23002F516A /* de */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

@@ -17,17 +17,19 @@
 - (CNX_ExtraCharges *)getCharges;
 @end
 
-@interface CNX_ChargesViewController : UIViewController <CNX_DataSelectViewControllerDelegate, UITableViewDataSource, UITableViewDelegate> {
+@interface CNX_ChargesViewController : UIViewController <CNX_DataSelectViewControllerDelegate, UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate> {
     NSInteger fractionalDigets;
     NSInteger digits;
     NSIndexPath *selectedCell;
     NSNumber *pickerValue;
     NSString *headerDescription;
+    NSString *navHeaderText;
 }
 
 @property (weak, nonatomic) id <CNX_ChargesViewControllerDelegate> delegate;
 @property (nonatomic, retain) IBOutlet CNX_ExtraCharges *charges;
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
+@property (weak, nonatomic) IBOutlet UINavigationItem *navigationText;
 
 - (IBAction)done:(id)sender;
 - (IBAction)clear:(id)sender;

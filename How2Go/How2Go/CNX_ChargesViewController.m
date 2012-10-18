@@ -14,7 +14,7 @@
 
 @implementation CNX_ChargesViewController
 
-@synthesize charges, myTableView;
+@synthesize charges, myTableView, navigationText;
 
 #pragma mark - Charges View
 
@@ -23,6 +23,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     charges = [self.delegate getCharges];
+    navigationText.title = NSLocalizedString(@"NavExpensesKey", nil);
 }
 
 -(void)didReceiveMemoryWarning {
@@ -32,6 +33,7 @@
 
 - (void)viewDidUnload
 {
+    [self setNavigationText:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -47,8 +49,26 @@
 }
 
 - (IBAction)clear:(id)sender {
-    [charges clearAllInstances];
-    [myTableView reloadData];
+    
+    // Ein UIActionSheet erzeugen
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"SheetHeaderKey", nil)
+                                                       delegate:self
+                                              cancelButtonTitle:NSLocalizedString(@"SheetUpsKey", nil)
+                                         destructiveButtonTitle:NSLocalizedString(@"SheetOneKey", nil)
+                                              otherButtonTitles:nil, nil];
+    // Sheet anzeigen
+    [sheet showInView:self.view];
+}
+
+#pragma mark - Action Sheet
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    // prüfen des ausgewählten Buttons
+    if (buttonIndex == 0) {
+        [charges clearAllInstances];
+        [myTableView reloadData];
+    }
+    
 }
 
 #pragma mark - Table View
@@ -81,13 +101,13 @@
             tableTitle = nil;
             break;
         case 1:
-            tableTitle = @"Expenses per annum";
+            tableTitle = NSLocalizedString(@"TableExpensesKey", nil);
             break;
         case 2:
-            tableTitle = @"Calculated Costs per Kilometer";
+            tableTitle = NSLocalizedString(@"TableCalcKey", nil);
             break;
         case 3:
-            tableTitle = @"Constant Values";
+            tableTitle = NSLocalizedString(@"TableFixeKey", nil);
             break;
     }
     return tableTitle;
@@ -109,7 +129,7 @@
     switch (indexPath.section) {
         case 0:
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            cell.textLabel.text = @"Car Price";
+            cell.textLabel.text = NSLocalizedString(@"CarPriceKey", nil);
             [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
             cell.detailTextLabel.text = [numberFormatter stringFromNumber:[NSNumber numberWithDouble:charges.carPrice]];
             break;
@@ -117,39 +137,42 @@
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             switch (indexPath.row) {
                 case 0:
-                    cell.textLabel.text = @"Insurance";
+                    cell.textLabel.text = NSLocalizedString(@"InsuranceKey", nil);
                     [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
                     cell.detailTextLabel.text = [numberFormatter stringFromNumber:[NSNumber numberWithDouble:charges.insurance]];
                     break;
                 case 1:
-                    cell.textLabel.text = @"Car Tax";
+                    cell.textLabel.text = NSLocalizedString(@"CarTaxKey", nil);
                     [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
                     cell.detailTextLabel.text = [numberFormatter stringFromNumber:[NSNumber numberWithDouble:charges.tax]];
                     break;
                 case 2:
-                    cell.textLabel.text = @"Service";
+                    cell.textLabel.text = NSLocalizedString(@"ServiceKey", nil);;
                     [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
                     cell.detailTextLabel.text = [numberFormatter stringFromNumber:[NSNumber numberWithDouble:charges.service]];
                     break;
+                default:
+                    break;
             }
+            default:
             break;
         case 2:
             cell.accessoryType = UITableViewCellAccessoryNone;
             switch (indexPath.row) {
                 case 0:
-                    cell.textLabel.text = @"Deprication";
+                    cell.textLabel.text = NSLocalizedString(@"DepricationKey", nil);
                     [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
                     [numberFormatter setMaximumFractionDigits:3];
                     cell.detailTextLabel.text = [numberFormatter stringFromNumber:[NSNumber numberWithDouble:charges.deprication]];
                     break;
                 case 1:
-                    cell.textLabel.text = @"Expenses";
+                    cell.textLabel.text = NSLocalizedString(@"ExpensesKey", nil);
                     [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
                     [numberFormatter setMaximumFractionDigits:3];
                     cell.detailTextLabel.text = [numberFormatter stringFromNumber:[NSNumber numberWithDouble:charges.chargesPerKM]];
                     break;
                 case 2:
-                    cell.textLabel.text = @"Total";
+                    cell.textLabel.text = NSLocalizedString(@"TotalKey", nil);
                     [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
                     [numberFormatter setMaximumFractionDigits:3];
                     cell.detailTextLabel.text = [numberFormatter stringFromNumber:[NSNumber numberWithDouble:charges.sumCostsKM]];
@@ -160,17 +183,17 @@
             cell.accessoryType = UITableViewCellAccessoryNone;
             switch (indexPath.row) {
                 case 0:
-                    cell.textLabel.text = @"Life Time (years)";
+                    cell.textLabel.text = NSLocalizedString(@"LifeTimeKey", nil);
                     [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
                     cell.detailTextLabel.text = [numberFormatter stringFromNumber:[NSNumber numberWithDouble:charges.lifeTime]];
                     break;
                 case 1:
-                    cell.textLabel.text = @"Mileage Per Annum";
+                    cell.textLabel.text = NSLocalizedString(@"MileageAnnumKey", nil);
                     [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
                     cell.detailTextLabel.text = [numberFormatter stringFromNumber:[NSNumber numberWithDouble:charges.milagePerAnno]];
                     break;
                 case 2:
-                    cell.textLabel.text = @"Mileage Life Time";
+                    cell.textLabel.text = NSLocalizedString(@"MileageLifeKey", nil);
                     [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
                     cell.detailTextLabel.text = [numberFormatter stringFromNumber:[NSNumber numberWithDouble:charges.milageLife]];
                     break;
@@ -188,7 +211,8 @@
             digits = 5;
             fractionalDigets = 0;
             pickerValue = [NSNumber numberWithDouble:charges.carPrice];
-            headerDescription = @"Please enter the original price of your car. This value is mandatory of all further calculations.";
+            headerDescription = NSLocalizedString(@"HeaderCarPriceKey", nil);
+            navHeaderText = NSLocalizedString(@"CarPriceKey", nil);
             break;
         case 1:
             switch (indexPath.row) {
@@ -196,21 +220,27 @@
                     digits = 3;
                     fractionalDigets = 2;
                     pickerValue = [NSNumber numberWithDouble:charges.insurance];
-                    headerDescription = @"Please enter the total amount for all insurances which are related to your car. This value is part of the expenses which are calculated by the tool.";
+                    headerDescription = NSLocalizedString(@"HeaderInsuranceKey", nil);
+                    navHeaderText = NSLocalizedString(@"InsuranceKey", nil);
                     break;
                 case 1:
                     digits = 3;
                     fractionalDigets = 2;
                     pickerValue = [NSNumber numberWithDouble:charges.tax];
-                    headerDescription = @"Please enter the total amount of all taxes which are related to your car. This value is part of the expenses which are calculated by the tool.";
+                    headerDescription = NSLocalizedString(@"HeaderTaxKey", nil);
+                    navHeaderText = NSLocalizedString(@"CarTaxKey", nil);
                     break;
                 case 2:
                     digits = 4;
                     fractionalDigets = 2;
                     pickerValue = [NSNumber numberWithDouble:charges.service];
-                    headerDescription = @"Please enter the total amount of your yearly service fee which is related to your car. This value is part of the expenses which are calculated by this tool.";
+                    headerDescription = NSLocalizedString(@"HeaderServiceKey", nil);
+                    navHeaderText = NSLocalizedString(@"ServiceKey", nil);
+                    break;
+                default:
                     break;
             }
+        default:
             break;
     }
 }
@@ -247,9 +277,6 @@
             break;
     }
     [myTableView reloadData];
-    //#warning Hier muss ich später die richtigen werte ersetzen
-    //    pickerValue = controller.selectedValue;
-    //    NSLog(@"selected value: %.3f", [pickerValue doubleValue]);
 }
 
 -(NSInteger)getFractionalDigets {
@@ -266,6 +293,10 @@
 
 -(NSString *)getHeaderDescription {
     return headerDescription;
+}
+
+-(NSString *)getNavDescription {
+    return navHeaderText;
 }
 
 @end

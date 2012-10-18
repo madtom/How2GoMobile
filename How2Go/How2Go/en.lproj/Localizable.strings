@@ -1,0 +1,85 @@
+/* 
+  Localizable.strings
+  How2Go
+
+  Created by Thomas Dubiel on 18.10.12.
+  Copyright (c) 2012 Thomas Dubiel. All rights reserved.
+*/
+
+// Main View Controller Texts
+
+"SwitchLabelKey" = "Use Expenses";
+
+"MainHeaderTextKey" = "Please enter the fare of your public transportation, the current price of gasoline and the distance to your destination. You can see the best choice in the buttom area.";
+
+"ResultLabelMissingKey  " = "Please enter all required values above";
+
+"CostLabelKey" = "Vehicle's Costs: %@";
+
+"ResultLabelBusKey" = "Take the Bus!";
+
+"ResultLabelCarKey" = "Take the Car!";
+
+"AlertKey" = "Attention!";
+
+"AlertMessageKey" = "You have not maintained any expenses. Please enter the values and you can use it to calculate more exactly.";
+
+"SheetHeaderKey" = "What's to delete?";
+"SheetAllKey" = "All, including Expenses";
+"SheetOneKey" = "Only displayed values";
+"SheetUpsKey" = "Cancel";
+
+// Table Cell Text Labels
+"FareKey" = "Fare";
+
+"GasKey" = "Gas Price";
+
+"DistanceKey" = "Distance";
+
+"ConsumptionKey" = "Gas Consumption";
+
+// Data Picker Header Texts
+"HeaderFareKey" = "Please enter the fare of a trip with your favorit public transportation. This value is the baseline to check what is the best way to go.";
+
+"HeaderGasKey" = "Please enter the curent price of a unit of fuel. This price is one of the mandatory costs to decide the best way to go.";
+
+"HeaderDistanceKey" = "Please enter the distance of your trip you have to go. The distance should be the route for going by car. The distance is one of the mandatory values to decide what is the best way to go.";
+
+"HeaderConsumptionKey" = "Please enter the average fuel consumption of your car. This value is mandatory to decide what is the best way to go.";
+
+// Charges View Controller Texts
+"NavExpensesKey" = "Expenses";
+
+"TableExpensesKey" = "Expenses per annum";
+
+"TableCalcKey" = "Expenses per Kilometer";
+
+"TableFixeKey" = "Constant Values";
+
+    // Table Cell Text Labels
+    "CarPriceKey" = "Car Price";
+    "InsuranceKey" = "Insurance";
+    "CarTaxKey" = "Car Tax";
+    "ServiceKey" = "Service";
+    "DepricationKey" = "Deprication";
+    "ExpensesKey" = "Sum Expenses";
+    "TotalKey" = "Total";
+    "LifeTimeKey" = "Life Time (year)";
+    "MileageAnnumKey" = "Mileage Per Annum";
+    "MileageLifeKey" = "Mileage Life Time";
+
+    // Data Picker Header Texts
+    "HeaderCarPriceKey" = "Please enter the original price of your car. This value is mandatory of all further calculations. This value is the base for calculating the deprication.";
+
+    "HeaderInsuranceKey" = "Please enter the total amount for all insurances which are related to your car. This value is part of the expenses which are calculated by the tool.";
+    "HeaderTaxKey" = "Please enter the total amount of all taxes which are related to your car. This value is part of the expenses which are calculated by the tool.";
+    "HeaderServiceKey" = "Please enter the total amount of your yearly service fee which is related to your car. This value is part of the expenses which are calculated by this tool.";
+
+// Flipside View Controller Texts
+"ProductOfKey" = "How2Go is a product of";
+
+"FirstTextKey" = "How 2 Go will give you a quick overview and a good feeling what is the best way to make your next trip. Based on statistical values, a car will be used about 12.4 years and a mileage of 19,000 km per year. All calculated expenses based on this values. *************************************** Please note that the calculation of the expenses and the decission of a means of transport can be different to the real costs of your trip. The app will aid you what cold be the best choice.";
+
+"SecondTextKey" = "Please note that the calculation of the expenses and the decission of a means of transport can be different to the real costs of your trip. The app will aid you what cold be the best choice.";
+
+"DecisionTextKey" = "The final decision is yours!";

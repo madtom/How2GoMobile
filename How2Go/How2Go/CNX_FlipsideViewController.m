@@ -20,6 +20,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    productOff.text = NSLocalizedString(@"ProductOfKey", nil);
+    firstText.text = NSLocalizedString(@"FirstTextKey", nil);
+    secondText.text = NSLocalizedString(@"SecondTextKey", nil);
+    decisionText.text = NSLocalizedString(@"DecisionTextKey", nil);
 }
 
 - (void)didReceiveMemoryWarning

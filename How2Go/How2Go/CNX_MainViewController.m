@@ -15,7 +15,7 @@
 @implementation CNX_MainViewController
 
 @synthesize busImage, carImage, myTableView, charges, costSwitch, questionImage;
-@synthesize imageView, resultLabel, costLabel, switchLabel, mainHeaderLabel, hintLabel;
+@synthesize imageView, resultLabel, costLabel, switchLabel, mainHeaderLabel;
 
 #pragma mark - Main View
 
@@ -26,9 +26,8 @@
     busImage = [UIImage imageNamed:@"Bus_100.png"];
     carImage = [UIImage imageNamed:@"Car_100.png"];
     questionImage = [UIImage imageNamed:@"QuestionMark100.png"];
-    switchLabel.text = @"Use Expenses";
-    hintLabel.text = @"";
-    mainHeaderLabel.text = @"Please enter the fare of your public transportation, the current price of gasoline and the distance to your destination. You can see the best choice in the buttom area.";
+    switchLabel.text = NSLocalizedString(@"SwitchLabelKey", nil);
+    mainHeaderLabel.text = NSLocalizedString(@"MainHeaderTextKey", nil);
     
     // load existing files if available or create new instances
     [self openArchives];
@@ -102,7 +101,6 @@
     // depricated in iOS 6.0
     [self setSwitchLabel:nil];
     [self setMainHeaderLabel:nil];
-    [self setHintLabel:nil];
     [super viewDidUnload];
 }
 
@@ -114,20 +112,49 @@
 -(void)checkHint {
     //hintLabel.textColor =
     if ( charges.sumCostsKM == 0 && costSwitch.isOn == 1 ) {
-        hintLabel.text = @"Please add Expenses ^^";
-    }
-    else {
-        hintLabel.text = @"";
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"AlertKey", nil)
+                                                         message:NSLocalizedString(@"AlertMessageKey", nil)
+                                                        delegate:nil
+                                               cancelButtonTitle:@"OK"
+                                               otherButtonTitles:nil, nil];
+        [alert show];
+        [costSwitch setOn:NO animated:YES];
     }
 }
 
 - (IBAction)clear:(id)sender {
-    [vehicle clearAllInstances];
-    [charges clearAllInstances];
-    [myTableView reloadData];
-    [self setCostSwitchState];
-    [self checkHint];
-    [self checkResult];
+    
+    // Ein UIActionSheet erzeugen
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"SheetHeaderKey", nil)
+                                                       delegate:self
+                                              cancelButtonTitle:NSLocalizedString(@"SheetUpsKey", nil)
+                                         destructiveButtonTitle:NSLocalizedString(@"SheetOneKey", nil)
+                                              otherButtonTitles:NSLocalizedString(@"SheetAllKey", nil), nil];
+    // Sheet anzeigen
+    [sheet showInView:self.view];
+}
+
+#pragma mark - Action Sheet 
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    // prüfen des ausgewählten Buttons
+    switch (buttonIndex) {
+        case 0:
+            [vehicle clearAllInstances];
+            break;
+        case 1:
+            [vehicle clearAllInstances];
+            [charges clearAllInstances];
+            break;
+        default:
+            break;
+    }
+    if (buttonIndex != 2) {
+        [myTableView reloadData];
+        [self setCostSwitchState];
+        [self checkHint];
+        [self checkResult];
+    }
 }
 
 #pragma mark - vehicle methods
@@ -139,21 +166,21 @@
     if (tripCosts == 0) {
         imageView.image = questionImage;
         costLabel.text = @"";
-        resultLabel.text = @"Please enter all required values above";
+        resultLabel.text = NSLocalizedString(@"ResultLabelMissingKey", nil);
     }
     else {
         // Number Formatter vorbereiten
         NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
         [numberFormatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
         [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
-        costLabel.text = [NSString stringWithFormat:@"Vehicle's Costs: %@", [numberFormatter stringFromNumber:[NSNumber numberWithDouble:tripCosts]]];
+        costLabel.text = [NSString stringWithFormat:NSLocalizedString(@"CostLabelKey", nil), [numberFormatter stringFromNumber:[NSNumber numberWithDouble:tripCosts]]];
         if ( tripCosts >= vehicle.ticketPrice ) {
             imageView.image = busImage;
-            resultLabel.text = @"Take the Bus!";
+            resultLabel.text = NSLocalizedString(@"ResultLabelBusKey", nil);
         }
         else {
             imageView.image = carImage;
-            resultLabel.text = @"Take the Car!";
+            resultLabel.text = NSLocalizedString(@"ResultLabelCarKey", nil);
         }
     }
 }
@@ -230,25 +257,25 @@
  
     switch (indexPath.section) {
         case 0:
-            cell.textLabel.text = @"Fare";
+            cell.textLabel.text = NSLocalizedString(@"FareKey", nil);
             [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
             cell.detailTextLabel.text = [numberFormatter stringFromNumber:[NSNumber numberWithDouble:vehicle.ticketPrice]];
             break;
         case 1:
             switch (indexPath.row) {
                 case 0:
-                    cell.textLabel.text = @"Gas Price";
+                    cell.textLabel.text = NSLocalizedString(@"GasKey", nil);
                     [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
                     [numberFormatter setMaximumFractionDigits:3];
                     cell.detailTextLabel.text = [numberFormatter stringFromNumber:[NSNumber numberWithDouble:vehicle.fuelPrice]];
                     break;
                 case 1:
-                    cell.textLabel.text = @"Distance";
+                    cell.textLabel.text = NSLocalizedString(@"DistanceKey", nil);
                     [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
                     cell.detailTextLabel.text = [numberFormatter stringFromNumber:[NSNumber numberWithDouble:vehicle.distance]];
                     break;
                 case 2:
-                    cell.textLabel.text = @"Gas Consumption";
+                    cell.textLabel.text = NSLocalizedString(@"ConsumptionKey", nil);
                     [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
                     cell.detailTextLabel.text = [numberFormatter stringFromNumber:[NSNumber numberWithDouble:vehicle.averageFuelConsumption]];
                     break;
@@ -266,7 +293,8 @@
              digits = 3;
              fractionalDigets = 2;
              pickerValue = [NSNumber numberWithDouble:vehicle.ticketPrice];
-             headerDescription = @"Please enter the fare of a trip with your favorit public transportation. This value is the baseline to check what is the best way to go.";
+             headerDescription = NSLocalizedString(@"HeaderFareKey", nil);
+             navHeaderText = NSLocalizedString(@"FareKey", nil);
              break;
          case 1:
              switch (indexPath.row) {
@@ -274,19 +302,22 @@
                      digits = 2;
                      fractionalDigets = 3;
                      pickerValue = [NSNumber numberWithDouble:vehicle.fuelPrice];
-                     headerDescription = @"Please enter the curent price of a unit of fuel. This price is one of the mandatory costs to decide the best way to go.";
+                     headerDescription = NSLocalizedString(@"HeaderGasKey", nil);
+                     navHeaderText = NSLocalizedString(@"GasKey", nil);
                      break;
                  case 1:
                      digits = 4;
                      fractionalDigets = 1;
                      pickerValue = [NSNumber numberWithDouble:vehicle.distance];
-                     headerDescription = @"Please enter the distance of your trip you have to go. The distance should be the route for going by car. The distance is one of the mandatory values to decide what is the best way to go.";
+                     headerDescription = NSLocalizedString(@"HeaderDistanceKey", nil);
+                     navHeaderText = NSLocalizedString(@"DistanceKey", nil);
                      break;
                  case 2:
                      digits = 2;
                      fractionalDigets = 2;
                      pickerValue = [NSNumber numberWithDouble:vehicle.averageFuelConsumption];
-                     headerDescription = @"Please enter the average fuel consumption of your car. This value is mandatory to decide what is the best way to go.";
+                     headerDescription = NSLocalizedString(@"HeaderConsumptionKey", nil);
+                     navHeaderText = NSLocalizedString(@"ConsumptionKey", nil);
                      break;
              }
              break;
@@ -337,6 +368,8 @@
     return headerDescription;
 }
 
-
+-(NSString *)getNavDescription {
+    return navHeaderText;
+}
 
 @end

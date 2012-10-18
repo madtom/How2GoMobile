@@ -1,0 +1,86 @@
+/* 
+  Localizable.strings
+  How2Go
+
+  Created by Thomas Dubiel on 18.10.12.
+  Copyright (c) 2012 Thomas Dubiel. All rights reserved.
+*/
+
+// Main View Controller Texts
+"SwitchLabelKey" = "Nebenkosten nutzen";
+
+"MainHeaderTextKey" = "Bitte geben Sie den Fahrpreis für öffentliche Verkehrsmittel, den aktuellen Benzinpreis und die Entfernung zu Ihrem Ziel ein. Im unteren Bereich sehen Sie die Kosten und einen Vorschlag.";
+
+"ResultLabelMissingKey" = "Bitte erfassen Sie alle Werte.";
+
+"CostLabelKey" = "Kosten Fahrzeug: %@";
+
+"ResultLabelBusKey" = "Nimm den Bus!";
+
+"ResultLabelCarKey" = "Nimm das Auto!";
+
+"AlertKey" = "Achtung!";
+
+"AlertMessageKey" = "Sie haben keine Nebenkosten erfasst. Bitte geben Sie die Nebenkosten ein damit die Berechnung exakter durchgeführt werden kann.";
+
+"SheetHeaderKey" = "Was soll gelöscht werden?";
+"SheetAllKey" = "Alles, auch Nebenkosten";
+"SheetOneKey" = "Nur die angezeigten Werte";
+"SheetUpsKey" = "Abbrechen";
+
+// Table Cell Text Labels
+"FareKey" = "Fahrpreis";
+
+"GasKey" = "Kraftstoffpreis";
+
+"DistanceKey" = "Entfernung (km)";
+
+"ConsumptionKey" = "∅ Verbrauch (l/100km)";
+
+// Data Picker Header Texts
+"HeaderFareKey" = "Bitte geben Sie den Fahrpreis für die öffentlichen Verkehrsmittel ein. Dieser Betrag ist die Basis für den Vergleich mit den Kosten für Ihr Fahrzeug.";
+
+"HeaderGasKey" = "Bitte geben Sie den aktuellen Kraftstoffpreis ein. Dieser Wert ist für die Berechnung der Fahrzeugkosten zwingend erforderlich.";
+
+"HeaderDistanceKey" = "Bitte geben Sie die Entfernung zu Ihrem Ziel oder die Fahrtstrecke ein. Dieser Wert ist für die Berechnung der Fahrzeugkosten zwingend erforderlich.";
+
+"HeaderConsumptionKey" = "Bitte geben Sie den durchschnittlichen Kraftstoffverbrauch für Ihr Fahrzeug ein. Dieser Wert ist für die Berechnung der Fahrzeugkosten zwingend erforderlich.";
+
+// Charges View Controller Texts
+"NavExpensesKey" = "Nebenkosten";
+
+"TableExpensesKey" = "Nebenkosten pro Jahr";
+
+"TableCalcKey" = "Nebenkosten pro Kilometer";
+
+"TableFixeKey" = "Feste Werte";
+
+// Table Cell Text Labels
+"CarPriceKey" = "Fahrzeugpreis";
+"InsuranceKey" = "Versicherung";
+"CarTaxKey" = "Steuern";
+"ServiceKey" = "Wartung";
+"DepricationKey" = "Wertverlußt";
+"ExpensesKey" = "Summe Nebenkosten";
+"TotalKey" = "Kosten je KM";
+"LifeTimeKey" = "Nutzungszeit (Jahre)";
+"MileageAnnumKey" = "Laufleistung pro Jahr (km)";
+"MileageLifeKey" = "Laufleistung Gesamt (km)";
+
+// Data Picker Header Texts
+"HeaderCarPriceKey" = "Bitte geben Sie den Neupreis Ihres Fahrzeugs ein. Dieser Wert wird für die Berechnung des Wertverlußtes benötigt";
+
+"HeaderInsuranceKey" = "Bitte geben Sie die Summe aller Versicherungen ein die Sie für dieses Fahrzeug abgeschlossen haben. Dieser Wert ist für die Berechnung der Nebenkosten relevant.";
+
+"HeaderTaxKey" = "Bitte geben Sie den Steuerbetrag für Ihr Fahrzeug ein. Dieser Wert ist für die Berechnung der Nebenkosten relevant.";
+
+"HeaderServiceKey" = "Bitte geben Sie den Betrag für Wartung und Werterhaltung für Ihr Fahrzeug ein. Dieser Wert ist für die Berechnung der Nebenkosten relevant.";
+
+// Flipside View Controller Texts
+"ProductOfKey" = "How2Go wurde erstellt von";
+
+"FirstTextKey" = "How2Go gibt Ihnen einen schnellen Überblick über die Kosten für eine Fahrt mit einem Fahrzeug und vergleicht die entstehenden Kosten mit den Kosten für die Nutzung öffentlicher Verkehrsmittel. Die Berechnung basiert auf statistischen Werten nachdem die durchschnittliche Nutzungszeit 12,4 Jahre beträgt und pro Jahr 19.000 km gefahren werden. ******************************************** Bitte beachten Sie, dass die Berechnung der Kosten und die Entscheidung für ein Fahrzeug oder öffentliche Verkehrsmittel von den tatsächlichen Kosten abweichen kann. Diese kleine App will Ihnen nur helfen ein Gefühl zu bekommen, was die richtige Entscheidung sein könnte.";
+
+"SecondTextKey" = "Bitte beachten Sie, dass die Berechnung der Kosten und die Entscheidung für ein Fahrzeug oder öffentliche Verkehrsmittel von den tatsächlichen Kosten abweichen kann. Diese kleine App will Ihnen nur helfen ein Gefühl zu bekommen, was die richtige Entscheidung sein könnte.";
+
+"DecisionTextKey" = "Sie entscheiden selbst!";

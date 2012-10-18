@@ -12,12 +12,13 @@
 #import "CNX_vehicleCalculator.h"
 #import "CNX_ExtraCharges.h"
 
-@interface CNX_MainViewController : UIViewController <CNX_FlipsideViewControllerDelegate, CNX_ChargesViewControllerDelegate, CNX_DataSelectViewControllerDelegate, UITableViewDataSource, UITableViewDelegate> {
+@interface CNX_MainViewController : UIViewController <CNX_FlipsideViewControllerDelegate, CNX_ChargesViewControllerDelegate, CNX_DataSelectViewControllerDelegate, UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate> {
     NSInteger fractionalDigets;
     NSInteger digits;
     NSIndexPath *selectedCell;
     NSNumber *pickerValue;
     NSString *headerDescription;
+    NSString *navHeaderText;
     CNX_vehicleCalculator *vehicle;
     double tripCosts;
 }
@@ -37,6 +38,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *costLabel;
 @property (weak, nonatomic) IBOutlet UILabel *switchLabel;
 @property (weak, nonatomic) IBOutlet UILabel *mainHeaderLabel;
-@property (weak, nonatomic) IBOutlet UILabel *hintLabel;
 
 @end
