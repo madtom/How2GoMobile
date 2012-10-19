@@ -16,6 +16,7 @@
 
 @synthesize busImage, carImage, myTableView, charges, costSwitch, questionImage;
 @synthesize imageView, resultLabel, costLabel, switchLabel, mainHeaderLabel;
+@synthesize adView, bannerIsVisible, mainView;
 
 #pragma mark - Main View
 
@@ -41,6 +42,11 @@
     // check the charges and set the costSwitch
     [self setCostSwitchState];
     [self checkResult];
+    
+    // Initialize Ad Banner
+    //adView.frame = CGRectOffset(adView.frame, 0, mainView.frame.size.height);
+    adView.delegate = self;
+    self.bannerIsVisible = NO;
 }
 
 -(void)setCostSwitchState {
@@ -101,6 +107,8 @@
     // depricated in iOS 6.0
     [self setSwitchLabel:nil];
     [self setMainHeaderLabel:nil];
+    [self setAdView:nil];
+    [self setMainView:nil];
     [super viewDidUnload];
 }
 
@@ -370,6 +378,30 @@
 
 -(NSString *)getNavDescription {
     return navHeaderText;
+}
+
+#pragma mark - Ad Banner Methods
+
+-(void)bannerViewDidLoadAd:(ADBannerView *)banner {
+
+    if (!self.bannerIsVisible) {
+        [UIView beginAnimations:@"animateAdBannerOn" context:NULL];
+        [adView setHidden:NO];
+        //banner.frame = CGRectOffset(banner.frame, 0,  (banner.frame.size.height * -1.0));
+        [UIView commitAnimations];
+        self.bannerIsVisible = YES;
+    }
+}
+
+-(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error {
+    
+    if (!self.bannerIsVisible) {
+        [UIView beginAnimations:@"animateAdBannerOff" context:NULL];
+        [adView setHidden:YES];
+        //banner.frame = CGRectOffset(banner.frame, 0, banner.frame.size.height);
+        [UIView commitAnimations];
+        self.bannerIsVisible = NO;
+    }
 }
 
 @end

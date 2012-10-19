@@ -6,13 +6,14 @@
 //  Copyright (c) 2012 Thomas Dubiel. All rights reserved.
 //
 
+#import <iAd/iAd.h>
 #import "CNX_FlipsideViewController.h"
 #import "CNX_ChargesViewController.h"
 #import "CNX_DataSelectViewController.h"
 #import "CNX_vehicleCalculator.h"
 #import "CNX_ExtraCharges.h"
 
-@interface CNX_MainViewController : UIViewController <CNX_FlipsideViewControllerDelegate, CNX_ChargesViewControllerDelegate, CNX_DataSelectViewControllerDelegate, UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate> {
+@interface CNX_MainViewController : UIViewController <CNX_FlipsideViewControllerDelegate, CNX_ChargesViewControllerDelegate, CNX_DataSelectViewControllerDelegate, UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate, ADBannerViewDelegate> {
     NSInteger fractionalDigets;
     NSInteger digits;
     NSIndexPath *selectedCell;
@@ -21,12 +22,14 @@
     NSString *navHeaderText;
     CNX_vehicleCalculator *vehicle;
     double tripCosts;
+    BOOL bannerIsVisible;
 }
 
 - (CNX_ExtraCharges *)getCharges;
 - (IBAction)costSwitchChanged:(id)sender;
 - (IBAction)clear:(id)sender;
 
+@property (strong, nonatomic) IBOutlet UIView *mainView;
 @property (nonatomic, retain) UIImage *busImage;
 @property (nonatomic, retain) UIImage *carImage;
 @property (nonatomic, retain) UIImage *questionImage;
@@ -38,5 +41,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *costLabel;
 @property (weak, nonatomic) IBOutlet UILabel *switchLabel;
 @property (weak, nonatomic) IBOutlet UILabel *mainHeaderLabel;
+@property (weak, nonatomic) IBOutlet ADBannerView *adView;
+@property (nonatomic, assign) BOOL bannerIsVisible;
 
 @end

@@ -151,6 +151,15 @@
                                     <constraint firstAttribute="centerY" secondItem="4c9-Me-fx9" secondAttribute="centerY" type="user" id="xcP-VE-7TG"/>
                                 </constraints>
                             </view>
+                            <adBannerView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="nNX-fI-Dhg">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="vXF-A3-RCe"/>
+                                </constraints>
+                                <requiredContentSizeIdentifiers>
+                                    <string>ADBannerContentSizeLandscape</string>
+                                    <string>ADBannerContentSizePortrait</string>
+                                </requiredContentSizeIdentifiers>
+                            </adBannerView>
                         </subviews>
                         <color key="backgroundColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -163,7 +172,9 @@
                             <constraint firstItem="akh-0Z-Tzr" firstAttribute="top" secondItem="gmx-dW-3Xf" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="TII-KL-OLh"/>
                             <constraint firstItem="akh-0Z-Tzr" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="WXi-3o-6fo"/>
                             <constraint firstItem="UGn-yY-h8J" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="XlT-AH-9nj"/>
+                            <constraint firstItem="nNX-fI-Dhg" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="Y0N-Nw-NNf"/>
                             <constraint firstAttribute="trailing" secondItem="akh-0Z-Tzr" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="dRk-4h-skh"/>
+                            <constraint firstItem="nNX-fI-Dhg" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="eIr-Sf-lks"/>
                             <constraint firstItem="p9u-zs-qtD" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="fAy-Gx-OE2"/>
                             <constraint firstItem="p9u-zs-qtD" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="jvN-jS-coQ"/>
                             <constraint firstItem="icd-Rv-uBj" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="l2U-qb-i60"/>
@@ -171,15 +182,18 @@
                             <constraint firstItem="lYf-tK-OLu" firstAttribute="top" secondItem="UGn-yY-h8J" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="ozb-P3-tab"/>
                             <constraint firstItem="icd-Rv-uBj" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="pMF-IY-fV0"/>
                             <constraint firstItem="icd-Rv-uBj" firstAttribute="top" secondItem="p9u-zs-qtD" secondAttribute="bottom" type="default" id="uAi-al-F1X"/>
+                            <constraint firstItem="nNX-fI-Dhg" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="uvj-vW-nEB"/>
                             <constraint firstItem="gmx-dW-3Xf" firstAttribute="centerY" secondItem="lYf-tK-OLu" secondAttribute="centerY" type="default" id="vre-zy-aB0"/>
                             <constraint firstItem="lYf-tK-OLu" firstAttribute="leading" secondItem="gmx-dW-3Xf" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="yp7-wv-FJl"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="adView" destination="nNX-fI-Dhg" id="37g-o1-DOT"/>
                         <outlet property="costLabel" destination="JLO-xK-gOX" id="zgI-gc-9uj"/>
                         <outlet property="costSwitch" destination="lYf-tK-OLu" id="Wez-Pt-GlO"/>
                         <outlet property="imageView" destination="4c9-Me-fx9" id="uIi-9z-IXz"/>
                         <outlet property="mainHeaderLabel" destination="icd-Rv-uBj" id="9c3-1f-kCD"/>
+                        <outlet property="mainView" destination="3" id="8FM-eF-044"/>
                         <outlet property="myTableView" destination="UGn-yY-h8J" id="hFc-z5-IEn"/>
                         <outlet property="resultLabel" destination="R36-T0-WZZ" id="nDQ-CH-Q5Q"/>
                         <outlet property="switchLabel" destination="gmx-dW-3Xf" id="B0q-Nc-LjZ"/>
