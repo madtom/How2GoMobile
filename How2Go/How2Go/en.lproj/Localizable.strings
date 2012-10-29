@@ -76,6 +76,7 @@
     "HeaderServiceKey" = "Please enter the total amount of your yearly service fee which is related to your car. This value is part of the expenses which are calculated by this tool.";
 
 // Flipside View Controller Texts
+"VersionKey" = "Version %@.%@";
 "ProductOfKey" = "How2Go is a product of";
 
 "FirstTextKey" = "How 2 Go will give you a quick overview and a good feeling what is the best way to make your next trip. Based on statistical values, a car will be used about 12.4 years and a mileage of 19,000 km per year. All calculated expenses based on this values. *************************************** Please note that the calculation of the expenses and the decission of a means of transport can be different to the real costs of your trip. The app will aid you what cold be the best choice.";

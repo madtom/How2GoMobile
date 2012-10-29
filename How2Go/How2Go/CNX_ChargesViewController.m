@@ -24,6 +24,12 @@
 	// Do any additional setup after loading the view, typically from a nib.
     charges = [self.delegate getCharges];
     navigationText.title = NSLocalizedString(@"NavExpensesKey", nil);
+    
+    /*
+    NSLocale *myLocal = [NSLocale currentLocale];
+    NSString *measurement = [myLocal objectForKey:NSLocaleMeasurementSystem];
+    BOOL metric = [myLocal objectForKey:NSLocaleUsesMetricSystem];
+    */
 }
 
 -(void)didReceiveMemoryWarning {

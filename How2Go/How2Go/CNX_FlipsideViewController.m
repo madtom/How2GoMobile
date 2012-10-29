@@ -14,22 +14,29 @@
 
 @implementation CNX_FlipsideViewController
 
-@synthesize productOff, firstText, secondText, decisionText;
+@synthesize productOff, firstText, secondText, decisionText, versionText;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    NSBundle *mainBundle = [NSBundle mainBundle];
+    
+    versionText.text = [NSString stringWithFormat: NSLocalizedString(@"VersionKey", nil),
+                        [mainBundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"],
+                        [mainBundle objectForInfoDictionaryKey:@"CFBundleVersion"]];
     productOff.text = NSLocalizedString(@"ProductOfKey", nil);
     firstText.text = NSLocalizedString(@"FirstTextKey", nil);
     secondText.text = NSLocalizedString(@"SecondTextKey", nil);
     decisionText.text = NSLocalizedString(@"DecisionTextKey", nil);
+    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    [self setVersionText:nil];
     [self setProductOff:nil];
     [self setFirstText:nil];
     [self setSecondText:nil];
@@ -45,6 +52,7 @@
 
 - (void)viewDidUnload {
 
+    [self setVersionText:nil];
     [super viewDidUnload];
 }
 @end

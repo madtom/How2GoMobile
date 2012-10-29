@@ -77,6 +77,7 @@
 "HeaderServiceKey" = "Bitte geben Sie den Betrag für Wartung und Werterhaltung für Ihr Fahrzeug ein. Dieser Wert ist für die Berechnung der Nebenkosten relevant.";
 
 // Flipside View Controller Texts
+"VersionKey" = "Version %@.%@";
 "ProductOfKey" = "How2Go wurde erstellt von";
 
 "FirstTextKey" = "How2Go gibt Ihnen einen schnellen Überblick über die Kosten für eine Fahrt mit einem Fahrzeug und vergleicht die entstehenden Kosten mit den Kosten für die Nutzung öffentlicher Verkehrsmittel. Die Berechnung basiert auf statistischen Werten nachdem die durchschnittliche Nutzungszeit 12,4 Jahre beträgt und pro Jahr 19.000 km gefahren werden. ******************************************** Bitte beachten Sie, dass die Berechnung der Kosten und die Entscheidung für ein Fahrzeug oder öffentliche Verkehrsmittel von den tatsächlichen Kosten abweichen kann. Diese kleine App will Ihnen nur helfen ein Gefühl zu bekommen, was die richtige Entscheidung sein könnte.";

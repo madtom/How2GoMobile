@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *firstText;
 @property (weak, nonatomic) IBOutlet UITextView *secondText;
 @property (weak, nonatomic) IBOutlet UITextView *decisionText;
+@property (weak, nonatomic) IBOutlet UILabel *versionText;
 
 - (IBAction)done:(id)sender;
 
